@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vetta — Diario digital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EFECE4;
+    --paper-raised:#F8F6F0;
+    --ink:#181818;
+    --ink-soft:#4B4843;
+    --line:#CFC9BB;
+    --crimson:#A32B24;
+    --gold:#8A6A2B;
+    --serif:'Source Serif 4', Georgia, serif;
+    --sans:'IBM Plex Sans', Arial, sans-serif;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--serif);
+    line-height:1.5;
+  }
+
+  a{color:inherit;text-decoration:none;}
+
+  /* ============ BARRA SUPERIOR ============ */
+  .topbar{
+    background:var(--ink);
+    color:var(--paper-raised);
+    font-family:var(--sans);
+    font-size:12.5px;
+    padding:6px 24px;
+    display:flex;
+    justify-content:space-between;
+    letter-spacing:.02em;
+  }
+  .topbar span{opacity:.75;}
+
+  /* ============ CABECERA / NAMEPLATE ============ */
+  header.masthead{
+    max-width:1180px;
+    margin:0 auto;
+    padding:28px 24px 14px;
+    text-align:center;
+  }
+  .masthead .fecha{
+    font-family:var(--sans);
+    font-size:12.5px;
+    color:var(--ink-soft);
+    margin-bottom:10px;
+  }
+  .masthead h1{
+    font-family:var(--serif);
+    font-weight:700;
+    font-size:clamp(42px,7vw,74px);
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  .masthead .lema{
+    font-family:var(--serif);
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:14px;
+    margin-top:6px;
+  }
+
+  nav.secciones{
+    border-top:2px solid var(--ink);
+    border-bottom:1px solid var(--ink);
+    max-width:1180px;
+    margin:14px auto 0;
+    padding:10px 24px;
+    display:flex;
+    gap:26px;
+    flex-wrap:wrap;
+    font-family:var(--sans);
+    font-weight:600;
+    font-size:13.5px;
+  }
+  nav.secciones a{
+    color:var(--ink);
+    padding-bottom:2px;
+    border-bottom:2px solid transparent;
+    cursor:pointer;
+  }
+  nav.secciones a:hover{border-bottom-color:var(--crimson);}
+  nav.secciones a.activa{border-bottom-color:var(--crimson);color:var(--crimson);}
+
+  main{
+    max-width:1180px;
+    margin:0 auto;
+    padding:30px 24px 60px;
+  }
+
+  /* ============ ETIQUETAS DE CATEGORÍA ============ */
+  .etiqueta{
+    font-family:var(--sans);
+    font-weight:600;
+    font-size:11px;
+    letter-spacing:.04em;
+    color:var(--crimson);
+    display:inline-block;
+    margin-bottom:6px;
+  }
+  .etiqueta.gold{color:var(--gold);}
+
+  /* ============ PORTADA: DESTACADA ============ */
+  .portada{
+    display:grid;
+    grid-template-columns:1.5fr 1fr;
+    gap:36px;
+    padding-bottom:28px;
+    border-bottom:1px solid var(--line);
+    margin-bottom:30px;
+  }
+  .destacada img{
+    width:100%;
+    aspect-ratio:16/10;
+    object-fit:cover;
+    display:block;
+    background:var(--line);
+  }
+  .destacada h2{
+    font-size:clamp(28px,3.4vw,40px);
+    line-height:1.12;
+    margin:12px 0 10px;
+    cursor:pointer;
+  }
+  .destacada h2:hover{color:var(--crimson);}
+  .destacada p.bajada{
+    color:var(--ink-soft);
+    font-size:17px;
+    margin:0 0 10px;
+  }
+  .meta{
+    font-family:var(--sans);
+    font-size:12px;
+    color:var(--ink-soft);
+  }
+
+  .secundarias{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+  }
+  .secundarias article{
+    display:flex;
+    gap:14px;
+    padding-bottom:18px;
+    border-bottom:1px solid var(--line);
+  }
+  .secundarias article:last-child{border-bottom:none;padding-bottom:0;}
+  .secundarias img{
+    width:104px;
+    height:78px;
+    object-fit:cover;
+    flex-shrink:0;
+    background:var(--line);
+  }
+  .secundarias h3{
+    font-size:16.5px;
+    line-height:1.25;
+    margin:0 0 6px;
+    cursor:pointer;
+  }
+  .secundarias h3:hover{color:var(--crimson);}
+
+  /* ============ CUERPO: GRID PRINCIPAL + SIDEBAR ============ */
+  .cuerpo{
+    display:grid;
+    grid-template-columns:2.2fr 1fr;
+    gap:44px;
+  }
+
+  .grid-noticias{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:28px 32px;
+  }
+  .tarjeta img{
+    width:100%;
+    aspect-ratio:3/2;
+    object-fit:cover;
+    background:var(--line);
+    margin-bottom:10px;
+  }
+  .tarjeta h3{
+    font-size:18px;
+    line-height:1.28;
+    margin:0 0 8px;
+    cursor:pointer;
+  }
+  .tarjeta h3:hover{color:var(--crimson);}
+  .tarjeta p{
+    color:var(--ink-soft);
+    font-size:14.5px;
+    margin:0 0 8px;
+  }
+
+  h2.titulo-seccion{
+    font-family:var(--sans);
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    border-bottom:2px solid var(--ink);
+    padding-bottom:8px;
+    margin:0 0 22px;
+  }
+
+  /* ============ SIDEBAR ============ */
+  aside{
+    border-left:1px solid var(--line);
+    padding-left:32px;
+  }
+  .mas-leidas{list-style:none;margin:0;padding:0;}
+  .mas-leidas li{
+    display:flex;
+    gap:14px;
+    padding:14px 0;
+    border-bottom:1px solid var(--line);
+    cursor:pointer;
+  }
+  .mas-leidas li:first-child{padding-top:0;}
+  .mas-leidas .num{
+    font-family:var(--serif);
+    font-weight:700;
+    font-size:26px;
+    color:var(--line);
+    line-height:1;
+  }
+  .mas-leidas h4{
+    font-size:15px;
+    line-height:1.3;
+    margin:0;
+  }
+  .mas-leidas li:hover h4{color:var(--crimson);}
+
+  .boletin{
+    margin-top:34px;
+    background:var(--paper-raised);
+    border:1px solid var(--line);
+    padding:22px;
+  }
+  .boletin h4{
+    font-family:var(--serif);
+    font-size:19px;
+    margin:0 0 6px;
+  }
+  .boletin p{
+    font-family:var(--sans);
+    font-size:13px;
+    color:var(--ink-soft);
+    margin:0 0 14px;
+  }
+  .boletin input{
+    width:100%;
+    padding:9px 10px;
+    border:1px solid var(--line);
+    font-family:var(--sans);
+    font-size:13px;
+    margin-bottom:8px;
+    background:#fff;
+  }
+  .boletin button{
+    width:100%;
+    padding:10px;
+    background:var(--ink);
+    color:var(--paper-raised);
+    border:none;
+    font-family:var(--sans);
+    font-weight:600;
+    font-size:13px;
+    cursor:pointer;
+  }
+  .boletin button:hover{background:var(--crimson);}
+
+  /* ============ VISTA DE ARTÍCULO ============ */
+  .vista-articulo{display:none;}
+  .vista-articulo.activa{display:block;}
+  .vista-portada.oculta{display:none;}
+
+  .volver{
+    font-family:var(--sans);
+    font-weight:600;
+    font-size:13px;
+    color:var(--ink-soft);
+    cursor:pointer;
+    display:inline-block;
+    margin-bottom:20px;
+  }
+  .volver:hover{color:var(--crimson);}
+
+  .articulo-full{
+    max-width:760px;
+    margin:0 auto;
+  }
+  .articulo-full h1{
+    font-size:clamp(30px,4.2vw,44px);
+    line-height:1.15;
+    margin:10px 0 14px;
+  }
+  .articulo-full .bajada{
+    font-size:19px;
+    color:var(--ink-soft);
+    margin:0 0 18px;
+  }
+  .articulo-full .meta{
+    padding-bottom:16px;
+    border-bottom:1px solid var(--line);
+    margin-bottom:22px;
+  }
+  .articulo-full img{
+    width:100%;
+    aspect-ratio:16/9;
+    object-fit:cover;
+    background:var(--line);
+    margin-bottom:10px;
+  }
+  .articulo-full .pie-img{
+    font-family:var(--sans);
+    font-size:12px;
+    color:var(--ink-soft);
+    margin-bottom:26px;
+  }
+  .articulo-full .cuerpo-texto p{
+    font-size:18.5px;
+    line-height:1.7;
+    margin:0 0 20px;
+  }
+  .articulo-full .cuerpo-texto p:first-of-type::first-letter{
+    font-size:56px;
+    font-weight:700;
+    float:left;
+    line-height:.8;
+    padding:6px 8px 0 0;
+    color:var(--crimson);
+  }
+
+  /* ============ FOOTER ============ */
+  footer{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:var(--sans);
+    font-size:12.5px;
+    padding:30px 24px;
+    margin-top:40px;
+  }
+  footer .contenido{
+    max-width:1180px;
+    margin:0 auto;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:12px;
+    opacity:.8;
+  }
+
+  @media (max-width:820px){
+    .portada,.cuerpo{grid-template-columns:1fr;}
+    aside{border-left:none;padding-left:0;border-top:1px solid var(--line);padding-top:26px;margin-top:10px;}
+    .grid-noticias{grid-template-columns:1fr;}
+    nav.secciones{gap:16px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span id="fecha-hoy"></span>
+  <span>Edición digital</span>
+</div>
+
+<header class="masthead">
+  <div class="fecha">Santiago, Chile</div>
+  <h1>Vetta</h1>
+  <div class="lema">Información verificada, todos lo</div>
+</header>
+
+<nav class="secciones" id="nav-secciones"></nav>
+
+<main>
+
+  <!-- ================= VISTA PORTADA ================= -->
+  <div class="vista-portada" id="vista-portada">
+    <section class="portada" id="portada"></section>
+
+    <div class="cuerpo">
+      <div>
+        <h2 class="titulo-seccion">Últimas noticias</h2>
+        <div class="grid-noticias" id="grid-noticias"></div>
+      </div>
+
+      <aside>
+        <h2 class="titulo-seccion">Lo más leído</h2>
+        <ul class="mas-leidas" id="mas-leidas"></ul>
+
+        <div class="boletin">
+          <h4>Recibe el boletín</h4>
+          <p>Las noticias más importantes cada mañana en tu correo.</p>
+          <input type="email" placeholder="tu@correo.com">
+          <button type="button">Suscribirme</button>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- ================= VISTA ARTÍCULO ================= -->
+  <div class="vista-articulo" id="vista-articulo">
+    <span class="volver" onclick="mostrarPortada()">&larr; Volver a portada</span>
+    <article class="articulo-full" id="articulo-contenido"></article>
+  </div>
+
+</main>
+
+
+
+<section id="contacto" style="padding: 60px 20px; font-family: sans-serif; background-color: #ffffff; text-align: center;">
+    <h2 style="font-size: 2rem; color: #cc0000; margin-bottom: 15px;">Contacto</h2>
+    <p style="max-width: 600px; margin: 15px auto; color: #666; line-height: 1.6;">
+        ¿Tienes alguna duda, sugerencia o denuncia? Ponte en contacto con nosotros.
+    </p>
+    <p style="font-weight: bold; color: #333; margin-top: 15px; font-size: 1.1rem;">
+        👤 Directora: Catalina Paredes Herrera
+    </p>
+    <p style="margin-top: 5px;">
+        📧 Correo: <a href="mailto:cataparedes3328@gmail.com" style="color: #cc0000; text-decoration: underline; font-weight: bold;">cataparedes3328@gmail.com</a>
+    </p>
+</section>
+
+<section id="quienes-somos" style="padding: 60px 20px; font-family: sans-serif; background-color: #f9f9f9; text-align: center;">
+    <h2 style="font-size: 2rem; color: #cc0000; margin-bottom: 15px;">Quiénes somos</h2>
+    <p style="max-width: 600px; margin: 15px auto; color: #666; line-height: 1.6;">
+        En Vetta somos un equipo comprometidos con la verdad, la transparencia y la actualidad. 
+        Nos dedicamos a entregar información clara y confiable para nuestros lectores.
+    </p>
+</section>
+
+<footer>
+  <div class="contenido">
+    <span>&copy; <span id="anio"></span> Vetta — Comprometidos con la verdad</span>
+    <span>
+        <a href="#contacto" style="color: #cc0000; text-decoration: underline; font-weight: bold;">Contacto</a> · 
+        <a href="#quienes-somos" style="color: #cc0000; text-decoration: underline; font-weight: bold;">Quiénes somos</a> · 
+        <a href="Aviso legal" style="color: #cc0000; text-decoration: underline; font-weight: bold;">Aviso legal</a> · 
+        
+    </span>
+  </div>
+</footer>
+
+
+<script>
+/* ============================================================
+   BASE DE DATOS DE NOTICIAS
+   ------------------------------------------------------------
+   Para agregar una noticia nueva, copia uno de estos bloques
+   { ... } y pégalo dentro del arreglo NOTICIAS, cambiando los
+   datos. Para editar una noticia existente, solo modifica el
+   texto correspondiente. No necesitas tocar nada del resto del
+   archivo.
+
+   Campos:
+   - id:        identificador único (texto, sin espacios)
+   - categoria: nombre de la sección (ej. "Política", "Deportes")
+   - titulo:    titular de la noticia
+   - bajada:    resumen corto (1-2 líneas) que va bajo el título
+   - autor:     nombre del/la periodista
+   - fecha:     texto libre, ej. "12 de septiembre de 2026"
+   - imagen:    URL de una imagen (puedes usar fotos propias o
+                servicios como picsum.photos / unsplash)
+   - destacada: true solo en LA noticia principal de portada
+                (debe haber una sola con true)
+   - cuerpo:    arreglo de párrafos (cada elemento es un párrafo)
+   ============================================================ */
+
+const NOTICIAS = [
+  {
+    id: "reforma-hidrica",
+    categoria: "Futbol Nacional",
+    titulo: "El Congreso aprueba en general el proyecto de reforma al código de aguas",
+    bajada: "La iniciativa, que busca priorizar el consumo humano por sobre el uso productivo en periodos de escasez, pasa ahora a la comisión mixta tras un debate de más de seis horas.",
+    autor: "Javiera Contreras",
+    fecha: "13 de septiembre de 2026",
+    imagen: "https://images.unsplash.com/photo-1541872703-74c5e44368f9?q=80&w=1200&auto=format&fit=crop",
+    destacada: false,
+    cuerpo: [
+      "Tras una sesión que se extendió hasta pasada la medianoche, la Cámara de Diputados aprobó en general el proyecto que modifica el código de aguas vigente desde 1981, con 89 votos a favor, 42 en contra y 6 abstenciones.",
+      "El texto establece que, en situaciones de sequía declarada, el abastecimiento para consumo humano y saneamiento tendrá prioridad legal por sobre las autorizaciones de uso agrícola e industrial, un cambio que sus impulsores calificaron como histórico.",
+      "Gremios agrícolas del norte y centro del país anticiparon que presentarán indicaciones durante la discusión en comisión mixta, argumentando que la norma, tal como está redactada, podría afectar la certeza jurídica de derechos ya constituidos.",
+      "El Ejecutivo, por su parte, valoró la votación y adelantó que enviará indicaciones adicionales orientadas a fortalecer la fiscalización de extracciones no autorizadas, uno de los puntos más discutidos durante la tramitación.",
+      "Se espera que la comisión mixta comience a sesionar la próxima semana, con miras a que el proyecto pueda ser despachado antes de que termine el año legislativo."
+    ]
+  },
+  {
+    id: "ipc-agosto",
+    categoria: "Futbol Internacional",
+    titulo: "Inflación de agosto sorprende al mercado y se ubica bajo lo esperado",
+    bajada: "El IPC mensual llegó a 0,2%, por debajo de las proyecciones de los analistas, impulsado por la baja en precios de alimentos frescos y transporte.",
+    autor: "Matías Rojas",
+    fecha: "12 de septiembre de 2026",
+    imagen: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=1200&auto=format&fit=crop",
+    destacada: false,
+    cuerpo: [
+      "El Instituto Nacional de Estadísticas informó que el Índice de Precios al Consumidor de agosto registró una variación de 0,2%, cifra inferior al 0,4% que anticipaba el mercado según la última Encuesta de Expectativas Económicas.",
+      "Con este resultado, la inflación acumulada en doce meses se sitúa en 3,6%, acercándose de forma sostenida a la meta del Banco Central.",
+      "Analistas consultados señalaron que la sorpresa a la baja podría abrir espacio para que el Consejo del instituto emisor retome los recortes de tasa en su próxima reunión de política monetaria."
+    ]
+  },
+  {
+    id: "final-copa",
+    categoria: "Automovilismo",
+    titulo: "El equipo local clasifica a la final tras un dramático empate en penales",
+    bajada: "Tras igualar 1-1 en el tiempo reglamentario, el conjunto local se impuso 4-3 desde los doce pasos y jugará la final del torneo el próximo domingo.",
+    autor: "Cristóbal Herrera",
+    fecha: "12 de septiembre de 2026",
+    imagen: "https://imagenes.elpais.com/resizer/v2/WCGACO4PPFGKHF3HIC4CXVKF5U.jpg?auth=09ba79ca2c6ae5dce108c1c59cea3ceb6f552a1c58aa175429f98640b64ac82b&width=1960&height=1470&smart=true",
+    destacada: false,
+    cuerpo: [
+      "En un partido de alta exigencia física, el local supo sobreponerse a un rival que se adelantó en el marcador a los 34 minutos, para finalmente definir todo desde el punto penal.",
+      "El arquero local se transformó en la figura del encuentro al contener dos remates, lo que desató la algarabía de los más de veinte mil espectadores presentes en el estadio.",
+      "El técnico del equipo clasificado destacó tras el partido el carácter mostrado por sus jugadores y llamó a la afición a acompañar al equipo en la definición del domingo."
+    ]
+  },
+  {
+    id: "festival-cine",
+    categoria: "Basquetbol",
+    titulo: "Comienza el festival de cine independiente con más de sesenta producciones",
+    bajada: "La muestra, que se extenderá durante nueve días, incluye estrenos de directores nacionales y una retrospectiva dedicada al documental latinoamericano.",
+    autor: "Fernanda Soto",
+    fecha: "11 de septiembre de 2026",
+    imagen: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1200&auto=format&fit=crop",
+    destacada: false,
+    cuerpo: [
+      "La vigésima edición del festival abrió sus puertas anoche con la proyección de una ópera prima que ya había sido reconocida en festivales internacionales.",
+      "La programación de este año pone especial énfasis en el documental, con una sección completa dedicada a producciones latinoamericanas centradas en memoria y territorio.",
+      "Los organizadores confirmaron que, además de las funciones presenciales, una selección de películas estará disponible en formato digital para quienes no puedan asistir a las salas."
+    ]
+  },
+  {
+    id: "vacuna-dengue",
+    categoria: "Tenis",
+    titulo: "Autoridad sanitaria confirma plan de vacunación contra el dengue en zonas de riesgo",
+    bajada: "La campaña, que comenzará el próximo mes, priorizará a la población de regiones con casos confirmados durante el último verano.",
+    autor: "Ignacio Bravo",
+    fecha: "11 de septiembre de 2026",
+    imagen: "https://images.unsplash.com/photo-1584982751601-97dcc096659c?q=80&w=1200&auto=format&fit=crop",
+    destacada: false,
+    cuerpo: [
+      "El Ministerio de Salud anunció el inicio de un plan piloto de vacunación dirigido a la población que reside en las áreas donde se registraron brotes durante la temporada estival.",
+      "La autoridad sanitaria explicó que la estrategia se complementará con las medidas habituales de control de vectores y educación comunitaria.",
+      "Se estima que la primera etapa del plan alcance a cerca de ochenta mil personas antes de que finalice el año."
+    ]
+  },
+  {
+    id: "startup-agrotech",
+    categoria: "Automovilismo",
+    titulo: "Startup nacional de riego inteligente cierra ronda de inversión por dos millones de dólares",
+    bajada: "La empresa, fundada hace tres años por egresados de ingeniería, planea expandir su tecnología de sensores a mercados de la región andina.",
+    autor: "Matías Rojas",
+    fecha: "10 de septiembre de 2026",
+    imagen: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=1200&auto=format&fit=crop",
+    destacada: false,
+    cuerpo: [
+      "La compañía, que desarrolla sensores de humedad conectados para optimizar el riego agrícola, anunció el cierre de una ronda liderada por un fondo de capital de riesgo regional.",
+      "Según sus fundadores, los recursos se destinarán a triplicar el equipo técnico y a abrir oficinas comerciales en dos países vecinos durante el próximo año.",
+      "La tecnología ya opera en más de trescientos predios agrícolas del valle central, donde sus desarrolladores aseguran haber logrado ahorros de agua cercanos al treinta por ciento."
+    ]
+  },
+  {
+    id: "ola-calor",
+    categoria: "Tenis",
+    titulo: "Servicio meteorológico decreta alerta por altas temperaturas para el fin de semana",
+    bajada: "Se esperan máximas superiores a los 34 grados en la zona central, por lo que la autoridad recomienda evitar la exposición solar entre las 12 y las 17 horas.",
+    autor: "Paulina Muñoz",
+    fecha: "10 de septiembre de 2026",
+    imagen: "https://images.unsplash.com/photo-1504370805625-d32c54b16100?q=80&w=1200&auto=format&fit=crop",
+    destacada: false,
+    cuerpo: [
+      "La dirección meteorológica informó que un sistema de altas presiones provocará un aumento sostenido de las temperaturas durante los próximos tres días.",
+      "Las autoridades de salud reiteraron las recomendaciones habituales: mantenerse hidratado, evitar el ejercicio físico intenso al aire libre en horas de mayor radiación y resguardar especialmente a menores y adultos mayores.",
+      "No se descartan cortes programados de suministro eléctrico en algunas comunas debido al aumento esperado en el consumo energético."
+    ]
+  
+  },
+  {
+    id: "squishy",
+    categoria: "Tenis",
+    titulo: "Los Squishy hacen que los niños estén más tranquilos",
+    bajada: "El equipo, integrado por seis estudiantes de tercero y cuarto medio, clasificó tras ganar la final nacional realizada este fin de semana.",
+    autor: "Fernanda Soto",
+    fecha: "9 de septiembre de 2026",
+    imagen: "./51EnN4kDoBL._AC_UF894,1000_QL80_.jpg",
+    destacada: false,
+    cuerpo: [
+      "El equipo del liceo se impuso a otros catorce colegios en la final del torneo nacional de robótica escolar, celebrada durante el fin de semana en la capital.",
+      "Los estudiantes, guiados por su profesor de tecnología, diseñaron un robot capaz de clasificar residuos de forma automática, proyecto que también fue reconocido con el premio a la innovación.",
+      "El torneo latinoamericano se realizará el próximo mes y reunirá a delegaciones de ocho países."
+    ]
+  },
+  {
+    id: "Polideportivo",
+    categoria: "Polideportivo",
+    titulo: "Final de tenis US OPEN",
+    bajada: "Será un partido dificil",
+    autor: "Calatina Paredes",
+    fecha: "13 de septiembre de 2026",
+    imagen: "./i.jpg",
+    destacada: true,
+    cuerpo: [
+      "El equipo del liceo se impuso a otros catorce colegios en la final del torneo nacional de robótica escolar, celebrada durante el fin de semana en la capital.",
+      "Los estudiantes, guiados por su profesor de tecnología, diseñaron un robot capaz de clasificar residuos de forma automática, proyecto que también fue reconocido con el premio a la innovación.",
+      "El torneo latinoamericano se realizará el próximo mes y reunirá a delegaciones de ocho países."
+    ]
+  }
+];
+
+/* ============================================================
+   A partir de aquí el código arma la página automáticamente
+   usando los datos de arriba. No es necesario modificar nada
+   de lo que sigue para agregar o editar noticias.
+   ============================================================ */
+
+// Fecha y año automáticos
+const hoy = new Date();
+document.getElementById("fecha-hoy").textContent =
+  hoy.toLocaleDateString("es-CL", { weekday:"long", day:"numeric", month:"long", year:"numeric" });
+document.getElementById("anio").textContent = hoy.getFullYear();
+
+// Navegación por categorías (se genera sola a partir de las noticias)
+const categorias = ["Portada", ...new Set(NOTICIAS.map(n => n.categoria))];
+const nav = document.getElementById("nav-secciones");
+categorias.forEach((cat, i) => {
+  const a = document.createElement("a");
+  a.textContent = cat;
+  if (i === 0) a.classList.add("activa");
+  a.addEventListener("click", () => {
+    document.querySelectorAll("nav.secciones a").forEach(el => el.classList.remove("activa"));
+    a.classList.add("activa");
+    mostrarPortada();
+    renderizarPortada(cat === "Portada" ? null : cat);
+  });
+  nav.appendChild(a);
+});
+
+function tarjetaHTML(n, tipo) {
+  if (tipo === "secundaria") {
+    return `
+      <article onclick="abrirArticulo('${n.id}')">
+        <img src="${n.imagen}" alt="${n.titulo}">
+        <div>
+          <span class="etiqueta">${n.categoria}</span>
+          <h3>${n.titulo}</h3>
+          <div class="meta">${n.autor}</div>
+        </div>
+      </article>`;
+  }
+  return `
+    <div class="tarjeta" onclick="abrirArticulo('${n.id}')">
+      <img src="${n.imagen}" alt="${n.titulo}">
+      <span class="etiqueta">${n.categoria}</span>
+      <h3>${n.titulo}</h3>
+      <p>${n.bajada}</p>
+      <div class="meta">${n.autor} · ${n.fecha}</div>
+    </div>`;
+}
+
+function renderizarPortada(filtroCategoria) {
+  const lista = filtroCategoria
+    ? NOTICIAS.filter(n => n.categoria === filtroCategoria)
+    : NOTICIAS;
+
+  const destacada = filtroCategoria
+    ? lista[0]
+    : (NOTICIAS.find(n => n.destacada) || NOTICIAS[0]);
+
+  const resto = lista.filter(n => n.id !== destacada.id);
+
+  // Bloque destacado + secundarias (parte superior)
+  document.getElementById("portada").innerHTML = `
+    <div class="destacada" onclick="abrirArticulo('${destacada.id}')">
+      <img src="${destacada.imagen}" alt="${destacada.titulo}">
+      <span class="etiqueta">${destacada.categoria}</span>
+      <h2>${destacada.titulo}</h2>
+      <p class="bajada">${destacada.bajada}</p>
+      <div class="meta">${destacada.autor} · ${destacada.fecha}</div>
+    </div>
+    <div class="secundarias">
+      ${resto.slice(0, 3).map(n => tarjetaHTML(n, "secundaria")).join("")}
+    </div>
+  `;
+
+  // Grid de noticias
+  document.getElementById("grid-noticias").innerHTML =
+    resto.slice(3).map(n => tarjetaHTML(n, "grid")).join("")
+    || resto.slice(0,3).map(n => tarjetaHTML(n,"grid")).join("");
+
+  // Lo más leído (simplemente toma 5 noticias distintas de la destacada)
+  const masLeidas = NOTICIAS.filter(n => n.id !== destacada.id).slice(0, 5);
+  document.getElementById("mas-leidas").innerHTML = masLeidas.map((n, i) => `
+    <li onclick="abrirArticulo('${n.id}')">
+      <span class="num">${String(i + 1).padStart(2, "0")}</span>
+      <h4>${n.titulo}</h4>
+    </li>
+  `).join("");
+}
+
+function abrirArticulo(id) {
+  const n = NOTICIAS.find(a => a.id === id);
+  if (!n) return;
+
+  document.getElementById("articulo-contenido").innerHTML = `
+    <span class="etiqueta ${n.categoria === 'Economía' ? 'gold' : ''}">${n.categoria}</span>
+    <h1>${n.titulo}</h1>
+    <p class="bajada">${n.bajada}</p>
+    <div class="meta">Por ${n.autor} · ${n.fecha}</div>
+    <br>
+    <img src="${n.imagen}" alt="${n.titulo}">
+    <div class="pie-img">Imagen referencial.</div>
+    <div class="cuerpo-texto">
+      ${n.cuerpo.map(p => `<p>${p}</p>`).join("")}
+    </div>
+  `;
+
+  document.getElementById("vista-portada").classList.add("oculta");
+  document.getElementById("vista-articulo").classList.add("activa");
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+function mostrarPortada() {
+  document.getElementById("vista-articulo").classList.remove("activa");
+  document.getElementById("vista-portada").classList.remove("oculta");
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+// Primera carga
+renderizarPortada(null);
+</script>
+
+</body>
+</html>
