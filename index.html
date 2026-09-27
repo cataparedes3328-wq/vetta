@@ -716,9 +716,9 @@ function renderizarPortada(filtroCategoria) {
   `;
 
   // Grid de noticias
+  const noticiasGrid = resto.length >= 3 ? resto.slice(3) : resto.slice(1);
   document.getElementById("grid-noticias").innerHTML =
-    resto.slice(3).map(n => tarjetaHTML(n, "grid")).join("")
-    || resto.slice(0,3).map(n => tarjetaHTML(n,"grid")).join("");
+    noticiasGrid.map(n => tarjetaHTML(n, "grid")).join("") || `<p style="color:var(--ink-soft); font-family:var(--sans);">No hay más noticias en esta sección por el momento.</p>`;
 
   // Lo más leído (simplemente toma 5 noticias distintas de la destacada)
   const masLeidas = NOTICIAS.filter(n => n.id !== destacada.id).slice(0, 5);
