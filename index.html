@@ -442,13 +442,10 @@ const NOTICIAS = [
         contenido: "A sus 20 años, el piloto italiano acumula ocho victorias en la temporada 2026 y encabeza el Mundial con Mercedes, confirmando el talento que demostró desde sus inicios en el karting." 
       },
       { 
-        tipo: "texto", 
-        contenido: "La historia de Andrea Kimi Antonelli comenzó en la ciudad de Bolonia donde creció en una familia con mucha pasión por el automovilismo gracias a su padre Marco Antonelli, un entorno que despertó en él un interés muy temprano por las carreras." 
-      },
-      { 
         tipo: "imagen", 
         index: 1, 
-        pie: "Antonelli celebrando en un momento clave de la temporada." 
+        pie: "Antonelli celebrando en un momento clave de la temporada.",
+        proporcion: "natural" // <--- Agrega esto aquí
       },
       { 
         tipo: "texto", 
@@ -457,7 +454,8 @@ const NOTICIAS = [
       { 
         tipo: "imagen", 
         index: 2, 
-        pie: "Registro exclusivo de la joven promesa del automovilismo." 
+        pie: "Registro exclusivo de la joven promesa del automovilismo.",
+        proporcion: "natural" // <--- Y aquí si también lo necesitas
       },
       { 
         tipo: "texto", 
@@ -561,10 +559,18 @@ function abrirArticulo(id) {
     contenidoHTML = n.elementos.map(el => {
       if (el.tipo === "texto") {
         return `<p>${el.contenido}</p>`;
-      } else if (el.tipo === "imagen" && n.imagenes && n.imagenes[el.index]) {
+     } else if (el.tipo === "imagen" && n.imagenes && n.imagenes[el.index]) {
+        let estiloCss = "width:100%; aspect-ratio:16/9; object-fit:cover; background:var(--line);";
+        
+        if (el.proporcion === "natural") {
+          estiloCss = "width:100%; max-height:550px; object-fit:contain; background:#f4f1ea; border-radius:4px;";
+        } else if (el.proporcion === "cuadrada") {
+          estiloCss = "width:100%; aspect-ratio:1/1; object-fit:cover;";
+        }
+
         return `
-          <div style="margin: 25px 0;">
-            <img src="${n.imagenes[el.index]}" alt="Imagen de la noticia" style="width:100%; aspect-ratio:16/9; object-fit:cover; background:var(--line);">
+          <div style="margin: 28px 0;">
+            <img src="${n.imagenes[el.index]}" alt="Imagen de la noticia" style="${estiloCss}">
             <div class="pie-img" style="margin-top: 6px;">${el.pie || "Imagen referencial."}</div>
           </div>
         `;
