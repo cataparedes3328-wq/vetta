@@ -31,7 +31,6 @@
 
   a{color:inherit;text-decoration:none;}
 
-  /* ============ BARRA SUPERIOR ============ */
   .topbar{
     background:var(--ink);
     color:var(--paper-raised);
@@ -44,7 +43,6 @@
   }
   .topbar span{opacity:.75;}
 
-  /* ============ CABECERA / NAMEPLATE ============ */
   header.masthead{
     max-width:1180px;
     margin:0 auto;
@@ -100,7 +98,6 @@
     padding:30px 24px 60px;
   }
 
-  /* ============ ETIQUETAS DE CATEGORÍA ============ */
   .etiqueta{
     font-family:var(--sans);
     font-weight:600;
@@ -112,7 +109,6 @@
   }
   .etiqueta.gold{color:var(--gold);}
 
-  /* ============ PORTADA: DESTACADA ============ */
   .portada{
     display:grid;
     grid-template-columns:1.5fr 1fr;
@@ -173,7 +169,6 @@
   }
   .secundarias h3:hover{color:var(--crimson);}
 
-  /* ============ CUERPO: GRID PRINCIPAL + SIDEBAR ============ */
   .cuerpo{
     display:grid;
     grid-template-columns:2.2fr 1fr;
@@ -216,7 +211,6 @@
     margin:0 0 22px;
   }
 
-  /* ============ SIDEBAR ============ */
   aside{
     border-left:1px solid var(--line);
     padding-left:32px;
@@ -283,7 +277,6 @@
   }
   .boletin button:hover{background:var(--crimson);}
 
-  /* ============ VISTA DE ARTÍCULO ============ */
   .vista-articulo{display:none;}
   .vista-articulo.activa{display:block;}
   .vista-portada.oculta{display:none;}
@@ -345,7 +338,6 @@
     color:var(--crimson);
   }
 
-  /* ============ FOOTER ============ */
   footer{
     background:var(--ink);
     color:var(--paper);
@@ -382,7 +374,7 @@
 <header class="masthead">
   <div class="fecha">Santiago, Chile</div>
   <h1>Vetta</h1>
-  <div class="lema">Información verificada, todos lo</div>
+  <div class="lema">Información verificada, todos los días</div>
 </header>
 
 <nav class="secciones" id="nav-secciones"></nav>
@@ -421,70 +413,18 @@
 
 </main>
 
-
-
-<section id="contacto" style="padding: 60px 20px; font-family: sans-serif; background-color: #ffffff; text-align: center;">
-    <h2 style="font-size: 2rem; color: #cc0000; margin-bottom: 15px;">Contacto</h2>
-    <p style="max-width: 600px; margin: 15px auto; color: #666; line-height: 1.6;">
-        ¿Tienes alguna duda, sugerencia o denuncia? Ponte en contacto con nosotros.
-    </p>
-    <p style="font-weight: bold; color: #333; margin-top: 15px; font-size: 1.1rem;">
-        👤 Directora: Catalina Paredes Herrera
-    </p>
-    <p style="margin-top: 5px;">
-        📧 Correo: <a href="mailto:cataparedes3328@gmail.com" style="color: #cc0000; text-decoration: underline; font-weight: bold;">cataparedes3328@gmail.com</a>
-    </p>
-</section>
-
-<section id="quienes-somos" style="padding: 60px 20px; font-family: sans-serif; background-color: #f9f9f9; text-align: center;">
-    <h2 style="font-size: 2rem; color: #cc0000; margin-bottom: 15px;">Quiénes somos</h2>
-    <p style="max-width: 600px; margin: 15px auto; color: #666; line-height: 1.6;">
-        En Vetta somos un equipo comprometidos con la verdad, la transparencia y la actualidad. 
-        Nos dedicamos a entregar información clara y confiable para nuestros lectores.
-    </p>
-</section>
-
 <footer>
   <div class="contenido">
     <span>&copy; <span id="anio"></span> Vetta — Comprometidos con la verdad</span>
-    <span>
-        <a href="#contacto" style="color: #cc0000; text-decoration: underline; font-weight: bold;">Contacto</a> · 
-        <a href="#quienes-somos" style="color: #cc0000; text-decoration: underline; font-weight: bold;">Quiénes somos</a> · 
-        <a href="Aviso legal" style="color: #cc0000; text-decoration: underline; font-weight: bold;">Aviso legal</a> · 
-        
-    </span>
+    <span>Contacto · Quiénes somos · Aviso legal</span>
   </div>
 </footer>
 
-
 <script>
-/* ============================================================
-   BASE DE DATOS DE NOTICIAS
-   ------------------------------------------------------------
-   Para agregar una noticia nueva, copia uno de estos bloques
-   { ... } y pégalo dentro del arreglo NOTICIAS, cambiando los
-   datos. Para editar una noticia existente, solo modifica el
-   texto correspondiente. No necesitas tocar nada del resto del
-   archivo.
-
-   Campos:
-   - id:        identificador único (texto, sin espacios)
-   - categoria: nombre de la sección (ej. "Política", "Deportes")
-   - titulo:    titular de la noticia
-   - bajada:    resumen corto (1-2 líneas) que va bajo el título
-   - autor:     nombre del/la periodista
-   - fecha:     texto libre, ej. "12 de septiembre de 2026"
-   - imagen:    URL de una imagen (puedes usar fotos propias o
-                servicios como picsum.photos / unsplash)
-   - destacada: true solo en LA noticia principal de portada
-                (debe haber una sola con true)
-   - cuerpo:    arreglo de párrafos (cada elemento es un párrafo)
-   ============================================================ */
-
 const NOTICIAS = [
   {
     id: "reforma-hidrica",
-    categoria: "Futbol Nacional",
+    categoria: "Política",
     titulo: "El Congreso aprueba en general el proyecto de reforma al código de aguas",
     bajada: "La iniciativa, que busca priorizar el consumo humano por sobre el uso productivo en periodos de escasez, pasa ahora a la comisión mixta tras un debate de más de seis horas.",
     autor: "Javiera Contreras",
@@ -493,52 +433,18 @@ const NOTICIAS = [
     destacada: false,
     cuerpo: [
       "Tras una sesión que se extendió hasta pasada la medianoche, la Cámara de Diputados aprobó en general el proyecto que modifica el código de aguas vigente desde 1981, con 89 votos a favor, 42 en contra y 6 abstenciones.",
-      "El texto establece que, en situaciones de sequía declarada, el abastecimiento para consumo humano y saneamiento tendrá prioridad legal por sobre las autorizaciones de uso agrícola e industrial, un cambio que sus impulsores calificaron como histórico.",
-      "Gremios agrícolas del norte y centro del país anticiparon que presentarán indicaciones durante la discusión en comisión mixta, argumentando que la norma, tal como está redactada, podría afectar la certeza jurídica de derechos ya constituidos.",
-      "El Ejecutivo, por su parte, valoró la votación y adelantó que enviará indicaciones adicionales orientadas a fortalecer la fiscalización de extracciones no autorizadas, uno de los puntos más discutidos durante la tramitación.",
-      "Se espera que la comisión mixta comience a sesionar la próxima semana, con miras a que el proyecto pueda ser despachado antes de que termine el año legislativo."
-    ]
-  },
-  {
-    id: "ipc-agosto",
-    categoria: "Futbol Internacional",
-    titulo: "Inflación de agosto sorprende al mercado y se ubica bajo lo esperado",
-    bajada: "El IPC mensual llegó a 0,2%, por debajo de las proyecciones de los analistas, impulsado por la baja en precios de alimentos frescos y transporte.",
-    autor: "Matías Rojas",
-    fecha: "12 de septiembre de 2026",
-    imagen: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=1200&auto=format&fit=crop",
-    destacada: false,
-    cuerpo: [
-      "El Instituto Nacional de Estadísticas informó que el Índice de Precios al Consumidor de agosto registró una variación de 0,2%, cifra inferior al 0,4% que anticipaba el mercado según la última Encuesta de Expectativas Económicas.",
-      "Con este resultado, la inflación acumulada en doce meses se sitúa en 3,6%, acercándose de forma sostenida a la meta del Banco Central.",
-      "Analistas consultados señalaron que la sorpresa a la baja podría abrir espacio para que el Consejo del instituto emisor retome los recortes de tasa en su próxima reunión de política monetaria."
+      "El texto establece que, en situaciones de sequía declarada, el abastecimiento para consumo humano y saneamiento tendrá prioridad legal por sobre las autorizaciones de uso agrícola e industrial.",
+      "Gremios agrícolas del norte y centro del país anticiparon que presentarán indicaciones durante la discusión en comisión mixta."
     ]
   },
   {
     id: "kimi-antonelli-lidera-f1",
     categoria: "Automovilismo",
     titulo: "El imperio de Kimi Antonelli: La historia de la joven promesa que domina la Fórmula 1",
-    bajada: "A sus 20 años, el piloto italiano acumula ocho victorias en la temporada 2026 y encabeza el Mundial con Mercedes, confirmando el talento que demostró desde sus inicios en el karting.",
+    bajada: "A sus 20 años, the piloto italiano acumula ocho victorias en la temporada 2026 y encabeza el Mundial con Mercedes, confirmando el talento que demostró desde sus inicios en el karting.",
     autor: "Catalina Paredes",
     fecha: "19 de septiembre de 2026",
-    imagen: "https://picsum.photos/seed/antonelli/800/600",
-    destacada: true,
-    cuerpo: [
-      "A sus 20 años, el piloto italiano acumula ocho victorias en la temporada 2026 y encabeza el Mundial con Mercedes, confirmando el talento que demostró desde sus inicios en el karting.",
-      "La historia de Andrea Kimi Antonelli comenzó en la ciudad de Bolonia donde creció en una familia con mucha pasión por el automovilismo gracias a su padre Marco Antonelli, un entorno que despertó en él un interés muy temprano por las carreras y lo llevó a competir en las categorías infantiles de karting local donde destacó rápidamente por su buena técnica, su velocidad y su gran facilidad para aprender a manejar en cualquier pista.",
-      "Al dar el salto definitivo hacia los monoplazas de fórmula sus resultados fueron claros y aceleraron sus etapas de desarrollo al consagrarse campeón de la Fórmula 4 Italiana y dominar el Campeonato de Fórmula Regional Europea con actuaciones memorables que confirmaron su proyección hacia la máxima categoría, demostrando en cada uno de estos campeonatos una capacidad sobresaliente para gestionar los momentos críticos de la carrera y mantener la compostura frente a rivales de mayor experiencia.",
-      "Tras dar el paso directo al equipo principal de Mercedes en la Fórmula 1 sin pasar por un proceso prolongado de adaptación en categorías menores, el piloto italiano construyó un presente increíble que lo encuentra hoy a sus 20 años como la figura indiscutible de la disciplina tras ganar el Gran Premio de España disputado en la ciudad de Madrid, un resultado que le permitió alcanzar una ventaja considerable de 81 puntos sobre su perseguidor más cercano en la lucha por el título y consolidar un liderazgo sólido en la tabla general de posiciones que refleja la regularidad de sus actuaciones fin de semana tras fin de semana.",
-      "En lo que va de esta temporada 2026 su dominio al volante del monoplaza de Mercedes ha sido constante en diversos tipos de trazados gracias a sus victorias de gran valor en escenarios internacionales como China, Japón y Estados Unidos con el triunfo en el Gran Premio de Miami, a las que sumó festejos en circuitos emblemáticos dentro de la historia del deporte motor como las calles de Mónaco, la mítica pista de Spa-Francorchamps en Bélgica y el esperado triunfo ante el público de su propio país en Monza.",
-      "La efectividad mostrada a lo largo del campeonato actual respalda el gran nivel por el que atraviesa el corredor nacido en Bolonia, cuya capacidad para marcar los mejores tiempos en las sesiones de clasificación y mantener un ritmo de carrera sólido le ha permitido gestionar la presión en los momentos decisivos de cada Gran Premio, confirmando con sus ocho victorias que vive su mejor momento deportivo y posicionándose como el principal candidato para ganar el campeonato mundial de Fórmula 1 y coronar un año inolvidable en el automovilismo."
-    ]
-  },
-  {
-    id: "kimi-antonelli-lidera-f1",
-    categoria: "Automovilismo",
-    titulo: "El imperio de Kimi Antonelli: La historia de la joven promesa que domina la Fórmula 1",
-    bajada: "A sus 20 años, el piloto italiano acumula ocho victorias en la temporada 2026 y encabeza el Mundial con Mercedes, confirmando el talento que demostró desde sus inicios en el karting.",
-    autor: "Catalina Paredes",
-    fecha: "19 de septiembre de 2026",
+    imagen: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQOUQ9L3ovHR6Ii2snybZe-2V3CZgVStzB4m_fmw4UxTlIf38-h",
     imagenes: [
       "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQOUQ9L3ovHR6Ii2snybZe-2V3CZgVStzB4m_fmw4UxTlIf38-h",
       "https://images.sipse.com/B0lbu5u-FBO1kdDn46PmSqjsA7o=/856x748/smart/filters:format(webp)/2026/09/06/1788731549723.jpg",
@@ -573,120 +479,8 @@ const NOTICIAS = [
         contenido: "Tras dar el paso directo al equipo principal de Mercedes en la Fórmula 1 sin pasar por un proceso prolongado de adaptación, el piloto italiano construyó un presente increíble." 
       }
     ]
-  },
-  {
-    id: "final-copa",
-    categoria: "Automovilismo",
-    titulo: "El equipo local clasifica a la final tras un dramático empate en penales",
-    bajada: "Tras igualar 1-1 en el tiempo reglamentario, el conjunto local se impuso 4-3 desde los doce pasos y jugará la final del torneo el próximo domingo.",
-    autor: "Cristóbal Herrera",
-    fecha: "12 de septiembre de 2026",
-    imagen: "https://imagenes.elpais.com/resizer/v2/WCGACO4PPFGKHF3HIC4CXVKF5U.jpg?auth=09ba79ca2c6ae5dce108c1c59cea3ceb6f552a1c58aa175429f98640b64ac82b&width=1960&height=1470&smart=true",
-    destacada: false,
-    cuerpo: [
-      "En un partido de alta exigencia física, el local supo sobreponerse a un rival que se adelantó en el marcador a los 34 minutos, para finalmente definir todo desde el punto penal.",
-      "El arquero local se transformó en la figura del encuentro al contener dos remates, lo que desató la algarabía de los más de veinte mil espectadores presentes en el estadio.",
-      "El técnico del equipo clasificado destacó tras el partido el carácter mostrado por sus jugadores y llamó a la afición a acompañar al equipo en la definición del domingo."
-    ]
-  },
-  {
-    id: "festival-cine",
-    categoria: "Basquetbol",
-    titulo: "Comienza el festival de cine independiente con más de sesenta producciones",
-    bajada: "La muestra, que se extenderá durante nueve días, incluye estrenos de directores nacionales y una retrospectiva dedicada al documental latinoamericano.",
-    autor: "Fernanda Soto",
-    fecha: "11 de septiembre de 2026",
-    imagen: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1200&auto=format&fit=crop",
-    destacada: false,
-    cuerpo: [
-      "La vigésima edición del festival abrió sus puertas anoche con la proyección de una ópera prima que ya había sido reconocida en festivales internacionales.",
-      "La programación de este año pone especial énfasis en el documental, con una sección completa dedicada a producciones latinoamericanas centradas en memoria y territorio.",
-      "Los organizadores confirmaron que, además de las funciones presenciales, una selección de películas estará disponible en formato digital para quienes no puedan asistir a las salas."
-    ]
-  },
-  {
-    id: "vacuna-dengue",
-    categoria: "Tenis",
-    titulo: "Autoridad sanitaria confirma plan de vacunación contra el dengue en zonas de riesgo",
-    bajada: "La campaña, que comenzará el próximo mes, priorizará a la población de regiones con casos confirmados durante el último verano.",
-    autor: "Ignacio Bravo",
-    fecha: "11 de septiembre de 2026",
-    imagen: "https://images.unsplash.com/photo-1584982751601-97dcc096659c?q=80&w=1200&auto=format&fit=crop",
-    destacada: false,
-    cuerpo: [
-      "El Ministerio de Salud anunció el inicio de un plan piloto de vacunación dirigido a la población que reside en las áreas donde se registraron brotes durante la temporada estival.",
-      "La autoridad sanitaria explicó que la estrategia se complementará con las medidas habituales de control de vectores y educación comunitaria.",
-      "Se estima que la primera etapa del plan alcance a cerca de ochenta mil personas antes de que finalice el año."
-    ]
-  },
-  {
-    id: "startup-agrotech",
-    categoria: "Automovilismo",
-    titulo: "Startup nacional de riego inteligente cierra ronda de inversión por dos millones de dólares",
-    bajada: "La empresa, fundada hace tres años por egresados de ingeniería, planea expandir su tecnología de sensores a mercados de la región andina.",
-    autor: "Matías Rojas",
-    fecha: "10 de septiembre de 2026",
-    imagen: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=1200&auto=format&fit=crop",
-    destacada: false,
-    cuerpo: [
-      "La compañía, que desarrolla sensores de humedad conectados para optimizar el riego agrícola, anunció el cierre de una ronda liderada por un fondo de capital de riesgo regional.",
-      "Según sus fundadores, los recursos se destinarán a triplicar el equipo técnico y a abrir oficinas comerciales en dos países vecinos durante el próximo año.",
-      "La tecnología ya opera en más de trescientos predios agrícolas del valle central, donde sus desarrolladores aseguran haber logrado ahorros de agua cercanos al treinta por ciento."
-    ]
-  },
-  {
-    id: "ola-calor",
-    categoria: "Tenis",
-    titulo: "Servicio meteorológico decreta alerta por altas temperaturas para el fin de semana",
-    bajada: "Se esperan máximas superiores a los 34 grados en la zona central, por lo que la autoridad recomienda evitar la exposición solar entre las 12 y las 17 horas.",
-    autor: "Paulina Muñoz",
-    fecha: "10 de septiembre de 2026",
-    imagen: "https://images.unsplash.com/photo-1504370805625-d32c54b16100?q=80&w=1200&auto=format&fit=crop",
-    destacada: false,
-    cuerpo: [
-      "La dirección meteorológica informó que un sistema de altas presiones provocará un aumento sostenido de las temperaturas durante los próximos tres días.",
-      "Las autoridades de salud reiteraron las recomendaciones habituales: mantenerse hidratado, evitar el ejercicio físico intenso al aire libre en horas de mayor radiación y resguardar especialmente a menores y adultos mayores.",
-      "No se descartan cortes programados de suministro eléctrico en algunas comunas debido al aumento esperado en el consumo energético."
-    ]
-  
-  },
-  {
-    id: "squishy",
-    categoria: "Tenis",
-    titulo: "Los Squishy hacen que los niños estén más tranquilos",
-    bajada: "El equipo, integrado por seis estudiantes de tercero y cuarto medio, clasificó tras ganar la final nacional realizada este fin de semana.",
-    autor: "Fernanda Soto",
-    fecha: "9 de septiembre de 2026",
-    imagen: "./51EnN4kDoBL._AC_UF894,1000_QL80_.jpg",
-    destacada: false,
-    cuerpo: [
-      "El equipo del liceo se impuso a otros catorce colegios en la final del torneo nacional de robótica escolar, celebrada durante el fin de semana en la capital.",
-      "Los estudiantes, guiados por su profesor de tecnología, diseñaron un robot capaz de clasificar residuos de forma automática, proyecto que también fue reconocido con el premio a la innovación.",
-      "El torneo latinoamericano se realizará el próximo mes y reunirá a delegaciones de ocho países."
-    ]
-  },
-  {
-    id: "Polideportivo",
-    categoria: "Polideportivo",
-    titulo: "Final de tenis US OPEN",
-    bajada: "Será un partido dificil",
-    autor: "Calatina Paredes",
-    fecha: "13 de septiembre de 2026",
-    imagen: "./i.jpg",
-    destacada: true,
-    cuerpo: [
-      "El equipo del liceo se impuso a otros catorce colegios en la final del torneo nacional de robótica escolar, celebrada durante el fin de semana en la capital.",
-      "Los estudiantes, guiados por su profesor de tecnología, diseñaron un robot capaz de clasificar residuos de forma automática, proyecto que también fue reconocido con el premio a la innovación.",
-      "El torneo latinoamericano se realizará el próximo mes y reunirá a delegaciones de ocho países."
-    ]
   }
 ];
-
-/* ============================================================
-   A partir de aquí el código arma la página automáticamente
-   usando los datos de arriba. No es necesario modificar nada
-   de lo que sigue para agregar o editar noticias.
-   ============================================================ */
 
 // Fecha y año automáticos
 const hoy = new Date();
@@ -694,7 +488,7 @@ document.getElementById("fecha-hoy").textContent =
   hoy.toLocaleDateString("es-CL", { weekday:"long", day:"numeric", month:"long", year:"numeric" });
 document.getElementById("anio").textContent = hoy.getFullYear();
 
-// Navegación por categorías (se genera sola a partir de las noticias)
+// Navegación por categorías
 const categorias = ["Portada", ...new Set(NOTICIAS.map(n => n.categoria))];
 const nav = document.getElementById("nav-secciones");
 categorias.forEach((cat, i) => {
@@ -741,9 +535,10 @@ function renderizarPortada(filtroCategoria) {
     ? lista[0]
     : (NOTICIAS.find(n => n.destacada) || NOTICIAS[0]);
 
+  if (!destacada) return;
+
   const resto = lista.filter(n => n.id !== destacada.id);
 
-  // Bloque destacado + secundarias (parte superior)
   document.getElementById("portada").innerHTML = `
     <div class="destacada" onclick="abrirArticulo('${destacada.id}')">
       <img src="${destacada.imagen}" alt="${destacada.titulo}">
@@ -757,12 +552,10 @@ function renderizarPortada(filtroCategoria) {
     </div>
   `;
 
-  // Grid de noticias
   const noticiasGrid = resto.length >= 3 ? resto.slice(3) : resto.slice(1);
   document.getElementById("grid-noticias").innerHTML =
     noticiasGrid.map(n => tarjetaHTML(n, "grid")).join("") || `<p style="color:var(--ink-soft); font-family:var(--sans);">No hay más noticias en esta sección por el momento.</p>`;
 
-  // Lo más leído (simplemente toma 5 noticias distintas de la destacada)
   const masLeidas = NOTICIAS.filter(n => n.id !== destacada.id).slice(0, 5);
   document.getElementById("mas-leidas").innerHTML = masLeidas.map((n, i) => `
     <li onclick="abrirArticulo('${n.id}')">
@@ -778,7 +571,7 @@ function abrirArticulo(id) {
 
   let contenidoHTML = "";
 
-  // Si la noticia utiliza la estructura avanzada de "elementos"
+  // Lee los elementos estructurados (textos e imágenes intercaladas)
   if (n.elementos && Array.isArray(n.elementos)) {
     contenidoHTML = n.elementos.map(el => {
       if (el.tipo === "texto") {
@@ -794,7 +587,7 @@ function abrirArticulo(id) {
       return "";
     }).join("");
   } 
-  // Si usa la estructura tradicional de solo texto ("cuerpo")
+  // O lee el cuerpo tradicional si alguna noticia no tiene elementos
   else if (n.cuerpo && Array.isArray(n.cuerpo)) {
     contenidoHTML = n.cuerpo.map(p => `<p>${p}</p>`).join("");
   }
@@ -816,6 +609,7 @@ function abrirArticulo(id) {
   document.getElementById("vista-articulo").classList.add("activa");
   window.scrollTo({top:0, behavior:"smooth"});
 }
+
 function mostrarPortada() {
   document.getElementById("vista-articulo").classList.remove("activa");
   document.getElementById("vista-portada").classList.remove("oculta");
@@ -828,3 +622,6 @@ renderizarPortada(null);
 
 </body>
 </html>
+   
+  
+ 
