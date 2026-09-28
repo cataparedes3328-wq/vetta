@@ -429,11 +429,11 @@ const NOTICIAS = [
     bajada: "A sus 20 años, el piloto italiano acumula ocho victorias en la temporada 2026 y encabeza el Mundial con Mercedes, confirmando el talento que demostró desde sus inicios en el karting.",
     autor: "Catalina Paredes",
     fecha: "19 de septiembre de 2026",
-    imagen: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQOUQ9L3ovHR6Ii2snybZe-2V3CZgVStzB4m_fmw4UxTlIf38-h",
+    imagen: "https://cdn-9.motorsport.com/images/amp/24Qe4jdY/s6/andrea-kimi-antonelli-mercedes.jpg", // <--- 1. Portada
     imagenes: [
-      "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQOUQ9L3ovHR6Ii2snybZe-2V3CZgVStzB4m_fmw4UxTlIf38-h",
-      "https://images.sipse.com/B0lbu5u-FBO1kdDn46PmSqjsA7o=/856x748/smart/filters:format(webp)/2026/09/06/1788731549723.jpg",
-      "https://pbs.twimg.com/media/D3Tcb9IXsAMP1P2?format=webp&name=large"
+      "https://cdn-9.motorsport.com/images/amp/24Qe4jdY/s6/andrea-kimi-antonelli-mercedes.jpg", // index 0
+      "https://pbs.twimg.com/media/D3Tcb9IXsAMP1P2?format=webp&name=large", // index 1: Primera imagen en el texto
+      "https://images.sipse.com/B0lbu5u-FBO1kdDn46PmSqjsA7o=/856x748/smart/filters:format(webp)/2026/09/06/1788731549723.jpg" // index 2: Última imagen en el texto
     ],
     destacada: true,
     elementos: [
@@ -442,29 +442,44 @@ const NOTICIAS = [
         contenido: "A sus 20 años, el piloto italiano acumula ocho victorias en la temporada 2026 y encabeza el Mundial con Mercedes, confirmando el talento que demostró desde sus inicios en el karting." 
       },
       { 
+        tipo: "texto", 
+        contenido: "La historia de Andrea Kimi Antonelli comenzó en la ciudad de Bolonia donde creció en una familia con mucha pasión por el automovilismo gracias a su padre Marco Antonelli, un entorno que despertó en él un interés muy temprano por las carreras y lo llevó a competir en las categorías infantiles de karting local donde destacó rápidamente por su buena técnica, su velocidad y su gran facilidad para aprender a manejar en cualquier pista." 
+      },
+      { 
         tipo: "imagen", 
         index: 1, 
-        pie: "Antonelli celebrando en un momento clave de la temporada.",
-        proporcion: "natural" // <--- Agrega esto aquí
+        pie: "Primeros registros de la joven promesa en el automovilismo.",
+        proporcion: "natural" 
       },
       { 
         tipo: "texto", 
-        contenido: "Al dar el salto definitivo hacia los monoplazas de fórmula sus resultados fueron claros y aceleraron sus etapas de desarrollo al consagrarse campeón de la Fórmula 4 Italiana." 
+        contenido: "Su destacado desempeño en los torneos nacionales e internacionales llamó la atención de los principales cazatalentos del deporte motor europeo hasta que con solo doce años su talento captó la mirada de Toto Wolff, director del equipo Mercedes, quien decidió incorporarlo de manera oficial al programa de jóvenes pilotos de la escudería alemana para respaldar su ascenso por las categorías de formación y brindarle el acompañamiento técnico e institucional necesario para afrontar la exigencia de las pistas con total serenidad." 
+      },
+      { 
+        tipo: "texto", 
+        contenido: "Al dar el salto definitivo hacia los monoplazas de fórmula sus resultados fueron claros y aceleraron sus etapas de desarrollo al consagrarse campeón de la Fórmula 4 Italiana y dominar el Campeonato de Fórmula Regional Europea con actuaciones memorables que confirmaron su proyección hacia la máxima categoría, demostrando en cada uno de estos campeonatos una capacidad sobresaliente para gestionar los momentos críticos de la carrera y mantener la compostura frente a rivales de mayor experiencia." 
+      },
+      { 
+        tipo: "texto", 
+        contenido: "Tras dar el paso directo al equipo principal de Mercedes en la Fórmula 1 sin pasar por un proceso prolongado de adaptación en categorías menores, el piloto italiano construyó un presente increíble que lo encuentra hoy a sus 20 años como la figura indiscutible de la disciplina tras ganar el Gran Premio de España disputado en la ciudad de Madrid, un resultado que le permitió alcanzar una ventaja considerable de 81 puntos sobre su perseguidor más cercano en la lucha por el título y consolidar un liderazgo sólido en la tabla general de posiciones que refleja la regularidad de sus actuaciones fin de semana tras fin de semana." 
+      },
+      { 
+        tipo: "texto", 
+        contenido: "En lo que va de esta temporada 2026 su dominio al volante del monoplaza de Mercedes ha sido constante en diversos tipos de trazados gracias a sus victorias de gran valor en escenarios internacionales como China, Japón y Estados Unidos con el triunfo en el Gran Premio de Miami, a las que sumó festejos en circuitos emblemáticos dentro de la historia del deporte motor como las calles de Mónaco, la mítica pista de Spa-Francorchamps en Bélgica y el esperado triunfo ante el público de su propio país en Monza." 
       },
       { 
         tipo: "imagen", 
         index: 2, 
-        pie: "Registro exclusivo de la joven promesa del automovilismo.",
-        proporcion: "natural" // <--- Y aquí si también lo necesitas
+        pie: "Andrea Kimi Antonelli consolidando su gran momento con Mercedes.",
+        proporcion: "natural" 
       },
       { 
         tipo: "texto", 
-        contenido: "Tras dar el paso directo al equipo principal de Mercedes en la Fórmula 1 sin pasar por un proceso prolongado de adaptación, el piloto italiano construyó un presente increíble." 
+        contenido: "La efectividad mostrada a lo largo del campeonato actual respalda el gran nivel por el que atraviesa el corredor nacido en Bolonia, cuya capacidad para marcar los mejores tiempos en las sesiones de clasificación y mantener un ritmo de carrera sólido le ha permitido gestionar la presión en los momentos decisivos de cada Gran Premio, confirmando con sus ocho victorias que vive su mejor momento deportivo y posicionándose como el principal candidato para ganar el campeonato mundial de Fórmula 1 y coronar un año inolvidable en el automovilismo." 
       }
     ]
   }
 ];
-
 // Fecha y año automáticos
 const hoy = new Date();
 document.getElementById("fecha-hoy").textContent =
