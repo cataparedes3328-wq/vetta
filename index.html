@@ -776,6 +776,29 @@ function abrirArticulo(id) {
   const n = NOTICIAS.find(a => a.id === id);
   if (!n) return;
 
+  let contenidoHTML = "";
+
+  // Si la noticia utiliza la estructura avanzada de "elementos"
+  if (n.elementos && Array.isArray(n.elementos)) {
+    contenidoHTML = n.elementos.map(el => {
+      if (el.tipo === "texto") {
+        return `<p>${el.contenido}</p>`;
+      } else if (el.tipo === "imagen" && n.imagenes && n.imagenes[el.index]) {
+        return `
+          <div style="margin: 25px 0;">
+            <img src="${n.imagenes[el.index]}" alt="Imagen de la noticia" style="width:100%; aspect-ratio:16/9; object-fit:cover; background:var(--line);">
+            <div class="pie-img" style="margin-top: 6px;">${el.pie || "Imagen referencial."}</div>
+          </div>
+        `;
+      }
+      return "";
+    }).join("");
+  } 
+  // Si usa la estructura tradicional de solo texto ("cuerpo")
+  else if (n.cuerpo && Array.isArray(n.cuerpo)) {
+    contenidoHTML = n.cuerpo.map(p => `<p>${p}</p>`).join("");
+  }
+
   document.getElementById("articulo-contenido").innerHTML = `
     <span class="etiqueta ${n.categoria === 'Economía' ? 'gold' : ''}">${n.categoria}</span>
     <h1>${n.titulo}</h1>
@@ -783,9 +806,9 @@ function abrirArticulo(id) {
     <div class="meta">Por ${n.autor} · ${n.fecha}</div>
     <br>
     <img src="${n.imagen}" alt="${n.titulo}">
-    <div class="pie-img">Imagen referencial.</div>
+    <div class="pie-img">Imagen de portada.</div>
     <div class="cuerpo-texto">
-      ${n.cuerpo.map(p => `<p>${p}</p>`).join("")}
+      ${contenidoHTML}
     </div>
   `;
 
@@ -793,7 +816,6 @@ function abrirArticulo(id) {
   document.getElementById("vista-articulo").classList.add("activa");
   window.scrollTo({top:0, behavior:"smooth"});
 }
-
 function mostrarPortada() {
   document.getElementById("vista-articulo").classList.remove("activa");
   document.getElementById("vista-portada").classList.remove("oculta");
