@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vetta — Diario digital</title>
+<title>VETTA — Medio de Comunicación Deportivo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#EFECE4;
-    --paper-raised:#F8F6F0;
-    --ink:#181818;
-    --ink-soft:#4B4843;
-    --line:#CFC9BB;
-    --crimson:#A32B24;
+    --paper:#FFFFFF;
+    --paper-raised:#FAFAFA;
+    --ink:#111111;
+    --ink-soft:#555555;
+    --line:#E5E5E5;
+    --crimson:#E31B23;
     --gold:#8A6A2B;
-    --serif:'Source Serif 4', Georgia, serif;
     --sans:'IBM Plex Sans', Arial, sans-serif;
+    --logo-font:'Montserrat', sans-serif;
   }
 
   *{box-sizing:border-box;}
@@ -25,61 +25,87 @@
     margin:0;
     background:var(--paper);
     color:var(--ink);
-    font-family:var(--serif);
+    font-family:var(--sans);
     line-height:1.5;
   }
 
   a{color:inherit;text-decoration:none;}
 
+  .barra-institucional {
+    background: var(--ink);
+    color: var(--paper);
+    font-size: 12px;
+    padding: 8px 24px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    letter-spacing: .02em;
+  }
+  .barra-institucional a {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+  .barra-institucional a:hover {
+    opacity: 1;
+    color: var(--crimson);
+  }
+
   .topbar{
-    background:var(--ink);
-    color:var(--paper-raised);
-    font-family:var(--sans);
-    font-size:12.5px;
-    padding:6px 24px;
-    display:flex;
-    justify-content:space-between;
-    letter-spacing:.02em;
+    background: #1f1f1f;
+    color: var(--paper);
+    font-size: 12px;
+    padding: 6px 24px;
+    display: flex;
+    justify-content: space-between;
+    letter-spacing: .02em;
   }
   .topbar span{opacity:.75;}
 
   header.masthead{
     max-width:1180px;
     margin:0 auto;
-    padding:28px 24px 14px;
+    padding:32px 24px 16px;
     text-align:center;
   }
   .masthead .fecha{
-    font-family:var(--sans);
-    font-size:12.5px;
+    font-size:12px;
     color:var(--ink-soft);
-    margin-bottom:10px;
+    margin-bottom:12px;
+    text-transform: uppercase;
+    letter-spacing: .05em;
   }
   .masthead h1{
-    font-family:var(--serif);
-    font-weight:700;
-    font-size:clamp(42px,7vw,74px);
+    font-family:var(--logo-font);
+    font-weight:800;
+    font-size:clamp(48px, 8vw, 84px);
     margin:0;
-    letter-spacing:-0.01em;
+    letter-spacing:-0.03em;
+    line-height:1;
+  }
+  .masthead h1 .v-roja {
+    color: var(--crimson);
+  }
+  .masthead h1 .etta-negra {
+    color: var(--ink);
   }
   .masthead .lema{
-    font-family:var(--serif);
-    font-style:italic;
+    font-style:normal;
     color:var(--ink-soft);
-    font-size:14px;
-    margin-top:6px;
+    font-size:13.5px;
+    margin-top:8px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
   }
 
   nav.secciones{
     border-top:2px solid var(--ink);
-    border-bottom:1px solid var(--ink);
+    border-bottom:1px solid var(--line);
     max-width:1180px;
     margin:14px auto 0;
     padding:10px 24px;
     display:flex;
     gap:26px;
     flex-wrap:wrap;
-    font-family:var(--sans);
     font-weight:600;
     font-size:13.5px;
   }
@@ -99,13 +125,13 @@
   }
 
   .etiqueta{
-    font-family:var(--sans);
     font-weight:600;
     font-size:11px;
     letter-spacing:.04em;
     color:var(--crimson);
     display:inline-block;
     margin-bottom:6px;
+    text-transform: uppercase;
   }
   .etiqueta.gold{color:var(--gold);}
 
@@ -125,19 +151,19 @@
     background:var(--line);
   }
   .destacada h2{
-    font-size:clamp(28px,3.4vw,40px);
-    line-height:1.12;
+    font-size:clamp(26px,3.2vw,38px);
+    line-height:1.15;
     margin:12px 0 10px;
     cursor:pointer;
+    font-weight: 700;
   }
   .destacada h2:hover{color:var(--crimson);}
   .destacada p.bajada{
     color:var(--ink-soft);
-    font-size:17px;
+    font-size:16px;
     margin:0 0 10px;
   }
   .meta{
-    font-family:var(--sans);
     font-size:12px;
     color:var(--ink-soft);
   }
@@ -162,10 +188,11 @@
     background:var(--line);
   }
   .secundarias h3{
-    font-size:16.5px;
+    font-size:15.5px;
     line-height:1.25;
     margin:0 0 6px;
     cursor:pointer;
+    font-weight: 600;
   }
   .secundarias h3:hover{color:var(--crimson);}
 
@@ -188,23 +215,23 @@
     margin-bottom:10px;
   }
   .tarjeta h3{
-    font-size:18px;
+    font-size:17px;
     line-height:1.28;
     margin:0 0 8px;
     cursor:pointer;
+    font-weight: 600;
   }
   .tarjeta h3:hover{color:var(--crimson);}
   .tarjeta p{
     color:var(--ink-soft);
-    font-size:14.5px;
+    font-size:14px;
     margin:0 0 8px;
   }
 
   h2.titulo-seccion{
-    font-family:var(--sans);
     font-weight:700;
-    font-size:13px;
-    letter-spacing:.05em;
+    font-size:12px;
+    letter-spacing:.08em;
     text-transform:uppercase;
     border-bottom:2px solid var(--ink);
     padding-bottom:8px;
@@ -225,16 +252,17 @@
   }
   .mas-leidas li:first-child{padding-top:0;}
   .mas-leidas .num{
-    font-family:var(--serif);
-    font-weight:700;
-    font-size:26px;
+    font-weight:800;
+    font-size:24px;
     color:var(--line);
     line-height:1;
+    font-family: var(--logo-font);
   }
   .mas-leidas h4{
-    font-size:15px;
+    font-size:14.5px;
     line-height:1.3;
     margin:0;
+    font-weight: 600;
   }
   .mas-leidas li:hover h4{color:var(--crimson);}
 
@@ -245,12 +273,11 @@
     padding:22px;
   }
   .boletin h4{
-    font-family:var(--serif);
-    font-size:19px;
+    font-size:17px;
     margin:0 0 6px;
+    font-weight: 700;
   }
   .boletin p{
-    font-family:var(--sans);
     font-size:13px;
     color:var(--ink-soft);
     margin:0 0 14px;
@@ -259,7 +286,6 @@
     width:100%;
     padding:9px 10px;
     border:1px solid var(--line);
-    font-family:var(--sans);
     font-size:13px;
     margin-bottom:8px;
     background:#fff;
@@ -268,21 +294,19 @@
     width:100%;
     padding:10px;
     background:var(--ink);
-    color:var(--paper-raised);
+    color:var(--paper);
     border:none;
-    font-family:var(--sans);
     font-weight:600;
     font-size:13px;
     cursor:pointer;
   }
   .boletin button:hover{background:var(--crimson);}
 
-  .vista-articulo{display:none;}
-  .vista-articulo.activa{display:block;}
+  .vista-articulo, .vista-estatica{display:none;}
+  .vista-articulo.activa, .vista-estatica.activa{display:block;}
   .vista-portada.oculta{display:none;}
 
   .volver{
-    font-family:var(--sans);
     font-weight:600;
     font-size:13px;
     color:var(--ink-soft);
@@ -292,17 +316,23 @@
   }
   .volver:hover{color:var(--crimson);}
 
-  .articulo-full{
+  .articulo-full, .vista-estatica{
     max-width:760px;
     margin:0 auto;
   }
-  .articulo-full h1{
-    font-size:clamp(30px,4.2vw,44px);
+  .articulo-full h1, .vista-estatica h2{
+    font-size:clamp(28px,3.8vw,40px);
     line-height:1.15;
     margin:10px 0 14px;
+    font-weight: 700;
+  }
+  .vista-estatica p{
+    font-size:17px;
+    line-height:1.7;
+    margin:0 0 20px;
   }
   .articulo-full .bajada{
-    font-size:19px;
+    font-size:18px;
     color:var(--ink-soft);
     margin:0 0 18px;
   }
@@ -319,30 +349,20 @@
     margin-bottom:10px;
   }
   .articulo-full .pie-img{
-    font-family:var(--sans);
     font-size:12px;
     color:var(--ink-soft);
     margin-bottom:26px;
   }
   .articulo-full .cuerpo-texto p{
-    font-size:18.5px;
+    font-size:17.5px;
     line-height:1.7;
     margin:0 0 20px;
-  }
-  .articulo-full .cuerpo-texto p:first-of-type::first-letter{
-    font-size:56px;
-    font-weight:700;
-    float:left;
-    line-height:.8;
-    padding:6px 8px 0 0;
-    color:var(--crimson);
   }
 
   footer{
     background:var(--ink);
     color:var(--paper);
-    font-family:var(--sans);
-    font-size:12.5px;
+    font-size:12px;
     padding:30px 24px;
     margin-top:40px;
   }
@@ -366,6 +386,11 @@
 </head>
 <body>
 
+<div class="barra-institucional">
+  <a onclick="mostrarEstatica('quienes-somos')">Quiénes somos</a>
+  <a onclick="mostrarEstatica('contacto')">Contacto</a>
+</div>
+
 <div class="topbar">
   <span id="fecha-hoy"></span>
   <span>Edición digital</span>
@@ -373,15 +398,14 @@
 
 <header class="masthead">
   <div class="fecha">Santiago, Chile</div>
-  <h1>Vetta</h1>
-  <div class="lema">Información verificada, todos los días</div>
+  <h1><span class="v-roja">V</span><span class="etta-negra">ETTA</span></h1>
+  <div class="lema">Información rigurosa, todos los días</div>
 </header>
 
 <nav class="secciones" id="nav-secciones"></nav>
 
 <main>
 
-  <!-- ================= VISTA PORTADA ================= -->
   <div class="vista-portada" id="vista-portada">
     <section class="portada" id="portada"></section>
 
@@ -397,7 +421,7 @@
 
         <div class="boletin">
           <h4>Recibe el boletín</h4>
-          <p>Las noticias más importantes cada mañana en tu correo.</p>
+          <p>Las noticias más importantes cada mañana en tu correo</p>
           <input type="email" placeholder="tu@correo.com">
           <button type="button">Suscribirme</button>
         </div>
@@ -405,18 +429,29 @@
     </div>
   </div>
 
-  <!-- ================= VISTA ARTÍCULO ================= -->
   <div class="vista-articulo" id="vista-articulo">
     <span class="volver" onclick="mostrarPortada()">&larr; Volver a portada</span>
     <article class="articulo-full" id="articulo-contenido"></article>
+  </div>
+
+  <div class="vista-estatica" id="quienes-somos">
+    <span class="volver" onclick="mostrarPortada()">&larr; Volver a portada</span>
+    <h2>Quiénes somos</h2>
+    <p><strong>Vetta</strong> es un medio de comunicación dedicado a ofrecer una cobertura completa y dinámica de todos los deportes, este espacio nace con el propósito de conectar a los fanáticos con la actualidad de cada deporte, abarcando desde el fútbol hasta el automovilismo, aquí cada noticia, análisis e historia se investiga y redacta con un firme compromiso, con el objetivo de brindar un periodismo cercano y enfocado en la verdadera pasión por el deporte.</p>
+  </div>
+
+  <div class="vista-estatica" id="contacto">
+    <span class="volver" onclick="mostrarPortada()">&larr; Volver a portada</span>
+    <h2>Contacto</h2>
+    <p>La opinión y participación de quienes nos leen son fundamentales para el desarrollo de nuestro trabajo diario si tienes alguna sugerencia, deseas enviarnos un comentario sobre nuestras publicaciones, aportar un dato deportivo o simplemente comunicarte, puedes hacerlo a través de nuestro correo electrónico <strong>contactovetta8@gmail.com</strong></p>
   </div>
 
 </main>
 
 <footer>
   <div class="contenido">
-    <span>&copy; <span id="anio"></span> Vetta — Comprometidos con la verdad</span>
-    <span>Contacto · Quiénes somos · Aviso legal</span>
+    <span>&copy; <span id="anio"></span> Vetta — Todos los derechos reservados</span>
+    <span>Medio de Comunicación Deportivo</span>
   </div>
 </footer>
 
@@ -426,67 +461,66 @@ const NOTICIAS = [
     id: "kimi-antonelli-lidera-f1",
     categoria: "Automovilismo",
     titulo: "El imperio de Kimi Antonelli: La historia de la joven promesa que domina la Fórmula 1",
-    bajada: "A sus 20 años, el piloto italiano acumula ocho victorias en la temporada 2026 y encabeza el Mundial con Mercedes, confirmando el talento que demostró desde sus inicios en el karting.",
+    bajada: "A sus 20 años, el piloto italiano acumula ocho victorias en la temporada 2026 y encabeza el Mundial con Mercedes, confirmando el talento que demostró desde sus inicios en el karting",
     autor: "Catalina Paredes",
     fecha: "19 de septiembre de 2026",
-    imagen: "https://cdn-9.motorsport.com/images/amp/24Qe4jdY/s6/andrea-kimi-antonelli-mercedes.jpg", // <--- 1. Portada
+    imagen: "https://cdn-9.motorsport.com/images/amp/24Qe4jdY/s6/andrea-kimi-antonelli-mercedes.jpg",
     imagenes: [
-      "https://cdn-9.motorsport.com/images/amp/24Qe4jdY/s6/andrea-kimi-antonelli-mercedes.jpg", // index 0
-      "https://pbs.twimg.com/media/D3Tcb9IXsAMP1P2?format=webp&name=large", // index 1: Primera imagen en el texto
-      "https://images.sipse.com/B0lbu5u-FBO1kdDn46PmSqjsA7o=/856x748/smart/filters:format(webp)/2026/09/06/1788731549723.jpg" // index 2: Última imagen en el texto
+      "https://cdn-9.motorsport.com/images/amp/24Qe4jdY/s6/andrea-kimi-antonelli-mercedes.jpg",
+      "https://pbs.twimg.com/media/D3Tcb9IXsAMP1P2?format=webp&name=large",
+      "https://images.sipse.com/B0lbu5u-FBO1kdDn46PmSqjsA7o=/856x748/smart/filters:format(webp)/2026/09/06/1788731549723.jpg"
     ],
     destacada: true,
     elementos: [
       { 
         tipo: "texto", 
-        contenido: "A sus 20 años, el piloto italiano acumula ocho victorias en la temporada 2026 y encabeza el Mundial con Mercedes, confirmando el talento que demostró desde sus inicios en el karting." 
+        contenido: "A sus 20 años, el piloto italiano acumula ocho victorias en la temporada 2026 y encabeza el Mundial con Mercedes, confirmando el talento que demostró desde sus inicios en el karting" 
       },
       { 
         tipo: "texto", 
-        contenido: "La historia de Andrea Kimi Antonelli comenzó en la ciudad de Bolonia donde creció en una familia con mucha pasión por el automovilismo gracias a su padre Marco Antonelli, un entorno que despertó en él un interés muy temprano por las carreras y lo llevó a competir en las categorías infantiles de karting local donde destacó rápidamente por su buena técnica, su velocidad y su gran facilidad para aprender a manejar en cualquier pista." 
+        contenido: "La historia de Andrea Kimi Antonelli comenzó en la ciudad de Bolonia donde creció en una familia con mucha pasión por el automovilismo gracias a su padre Marco Antonelli, un entorno que despertó en él un interés muy temprano por las carreras y lo llevó a competir en las categorías infantiles de karting local donde destacó rápidamente por su buena técnica, su velocidad y su gran facilidad para aprender a manejar en cualquier pista" 
       },
       { 
         tipo: "imagen", 
         index: 1, 
-        pie: "Primeros registros de la joven promesa en el automovilismo.",
+        pie: "Primeros registros de la joven promesa en el automovilismo",
         proporcion: "natural" 
       },
       { 
         tipo: "texto", 
-        contenido: "Su destacado desempeño en los torneos nacionales e internacionales llamó la atención de los principales cazatalentos del deporte motor europeo hasta que con solo doce años su talento captó la mirada de Toto Wolff, director del equipo Mercedes, quien decidió incorporarlo de manera oficial al programa de jóvenes pilotos de la escudería alemana para respaldar su ascenso por las categorías de formación y brindarle el acompañamiento técnico e institucional necesario para afrontar la exigencia de las pistas con total serenidad." 
+        contenido: "Su destacado desempeño en los torneos nacionales e internacionales llamó la atención de los principales cazatalentos del deporte motor europeo hasta que con solo doce años su talento captó la mirada de Toto Wolff, director del equipo Mercedes, quien decidió incorporarlo al programa de jóvenes pilotos de la escudería alemana para respaldar su ascenso por las categorías de formación y brindarle el acompañamiento técnico necesario para afrontar la exigencia de las pistas con total serenidad" 
       },
       { 
         tipo: "texto", 
-        contenido: "Al dar el salto definitivo hacia los monoplazas de fórmula sus resultados fueron claros y aceleraron sus etapas de desarrollo al consagrarse campeón de la Fórmula 4 Italiana y dominar el Campeonato de Fórmula Regional Europea con actuaciones memorables que confirmaron su proyección hacia la máxima categoría, demostrando en cada uno de estos campeonatos una capacidad sobresaliente para gestionar los momentos críticos de la carrera y mantener la compostura frente a rivales de mayor experiencia." 
+        contenido: "Al dar el salto definitivo hacia los monoplazas de fórmula sus resultados fueron claros y aceleraron sus etapas de desarrollo al consagrarse campeón de la Fórmula 4 Italiana y dominar el Campeonato de Fórmula Regional Europea con actuaciones memorables que confirmaron su proyección hacia la máxima categoría, demostrando en cada uno de estos campeonatos una capacidad sobresaliente para gestionar los momentos críticos de la carrera y mantener la compostura frente a rivales de mayor experiencia" 
       },
       { 
         tipo: "texto", 
-        contenido: "Tras dar el paso directo al equipo principal de Mercedes en la Fórmula 1 sin pasar por un proceso prolongado de adaptación en categorías menores, el piloto italiano construyó un presente increíble que lo encuentra hoy a sus 20 años como la figura indiscutible de la disciplina tras ganar el Gran Premio de España disputado en la ciudad de Madrid, un resultado que le permitió alcanzar una ventaja considerable de 81 puntos sobre su perseguidor más cercano en la lucha por el título y consolidar un liderazgo sólido en la tabla general de posiciones que refleja la regularidad de sus actuaciones fin de semana tras fin de semana." 
+        contenido: "Tras dar el paso directo al equipo principal de Mercedes en la Fórmula 1 sin pasar por un proceso prolongado de adaptación en categorías menores, el piloto italiano construyó un presente increíble que lo encuentra hoy a sus 20 años como la figura indiscutible de la disciplina tras ganar el Gran Premio de España disputado en la ciudad de Madrid, un resultado que le permitió alcanzar una ventaja considerable de 81 puntos sobre su perseguidor más cercano en la lucha por el título y consolidar un liderazgo sólido en la tabla general de posiciones que refleja la regularidad de sus actuaciones fin de semana tras fin de semana" 
       },
       { 
         tipo: "texto", 
-        contenido: "En lo que va de esta temporada 2026 su dominio al volante del monoplaza de Mercedes ha sido constante en diversos tipos de trazados gracias a sus victorias de gran valor en escenarios internacionales como China, Japón y Estados Unidos con el triunfo en el Gran Premio de Miami, a las que sumó festejos en circuitos emblemáticos dentro de la historia del deporte motor como las calles de Mónaco, la mítica pista de Spa-Francorchamps en Bélgica y el esperado triunfo ante el público de su propio país en Monza." 
+        contenido: "En lo que va de esta temporada 2026 su dominio al volante del monoplaza de Mercedes ha sido constante en diversos tipos de trazados gracias a sus victorias de valor en escenarios internacionales como China, Japón y Estados Unidos con el triunfo en el Gran Premio de Miami, a las que sumó festejos en circuitos emblemáticos dentro de la historia del deporte motor como las calles de Mónaco, la mítica pista de Spa-Francorchamps en Bélgica y el esperado triunfo ante el público de su propio país en Monza" 
       },
       { 
         tipo: "imagen", 
         index: 2, 
-        pie: "Andrea Kimi Antonelli consolidando su gran momento con Mercedes.",
+        pie: "Andrea Kimi Antonelli consolidando su gran momento con Mercedes",
         proporcion: "natural" 
       },
       { 
         tipo: "texto", 
-        contenido: "La efectividad mostrada a lo largo del campeonato actual respalda el gran nivel por el que atraviesa el corredor nacido en Bolonia, cuya capacidad para marcar los mejores tiempos en las sesiones de clasificación y mantener un ritmo de carrera sólido le ha permitido gestionar la presión en los momentos decisivos de cada Gran Premio, confirmando con sus ocho victorias que vive su mejor momento deportivo y posicionándose como el principal candidato para ganar el campeonato mundial de Fórmula 1 y coronar un año inolvidable en el automovilismo." 
+        contenido: "La efectividad mostrada a lo largo del campeonato actual respalda el gran nivel por el que atraviesa el corredor nacido en Bolonia, cuya capacidad para marcar los mejores tiempos en las sesiones de clasificación y mantener un ritmo de carrera sólido le ha permitido gestionar la presión en los momentos decisivos de cada Gran Premio, confirmando con sus ocho victorias que vive su mejor momento deportivo y posicionándose como el principal candidato para ganar el campeonato mundial de Fórmula 1 y coronar un año inolvidable en el automovilismo" 
       }
     ]
   }
 ];
-// Fecha y año automáticos
+
 const hoy = new Date();
 document.getElementById("fecha-hoy").textContent =
   hoy.toLocaleDateString("es-CL", { weekday:"long", day:"numeric", month:"long", year:"numeric" });
 document.getElementById("anio").textContent = hoy.getFullYear();
 
-// Navegación por categorías
 const categorias = ["Portada", ...new Set(NOTICIAS.map(n => n.categoria))];
 const nav = document.getElementById("nav-secciones");
 categorias.forEach((cat, i) => {
@@ -552,7 +586,7 @@ function renderizarPortada(filtroCategoria) {
 
   const noticiasGrid = resto.length >= 3 ? resto.slice(3) : resto.slice(1);
   document.getElementById("grid-noticias").innerHTML =
-    noticiasGrid.map(n => tarjetaHTML(n, "grid")).join("") || `<p style="color:var(--ink-soft); font-family:var(--sans);">No hay más noticias en esta sección por el momento.</p>`;
+    noticiasGrid.map(n => tarjetaHTML(n, "grid")).join("") || `<p style="color:var(--ink-soft); font-family:var(--sans);">No hay más noticias en esta sección por el momento</p>`;
 
   const masLeidas = NOTICIAS.filter(n => n.id !== destacada.id).slice(0, 5);
   document.getElementById("mas-leidas").innerHTML = masLeidas.map((n, i) => `
@@ -569,16 +603,15 @@ function abrirArticulo(id) {
 
   let contenidoHTML = "";
 
-  // Lee los elementos estructurados (textos e imágenes intercaladas)
   if (n.elementos && Array.isArray(n.elementos)) {
     contenidoHTML = n.elementos.map(el => {
       if (el.tipo === "texto") {
         return `<p>${el.contenido}</p>`;
-     } else if (el.tipo === "imagen" && n.imagenes && n.imagenes[el.index]) {
+      } else if (el.tipo === "imagen" && n.imagenes && n.imagenes[el.index]) {
         let estiloCss = "width:100%; aspect-ratio:16/9; object-fit:cover; background:var(--line);";
         
         if (el.proporcion === "natural") {
-          estiloCss = "width:100%; max-height:550px; object-fit:contain; background:#f4f1ea; border-radius:4px;";
+          estiloCss = "width:100%; max-height:550px; object-fit:contain; background:#f9f9f9; border-radius:4px;";
         } else if (el.proporcion === "cuadrada") {
           estiloCss = "width:100%; aspect-ratio:1/1; object-fit:cover;";
         }
@@ -586,14 +619,13 @@ function abrirArticulo(id) {
         return `
           <div style="margin: 28px 0;">
             <img src="${n.imagenes[el.index]}" alt="Imagen de la noticia" style="${estiloCss}">
-            <div class="pie-img" style="margin-top: 6px;">${el.pie || "Imagen referencial."}</div>
+            <div class="pie-img" style="margin-top: 6px;">${el.pie || "Imagen referencial"}</div>
           </div>
         `;
       }
       return "";
     }).join("");
   } 
-  // O lee el cuerpo tradicional si alguna noticia no tiene elementos
   else if (n.cuerpo && Array.isArray(n.cuerpo)) {
     contenidoHTML = n.cuerpo.map(p => `<p>${p}</p>`).join("");
   }
@@ -605,7 +637,7 @@ function abrirArticulo(id) {
     <div class="meta">Por ${n.autor} · ${n.fecha}</div>
     <br>
     <img src="${n.imagen}" alt="${n.titulo}">
-    <div class="pie-img">Imagen de portada.</div>
+    <div class="pie-img">Imagen de portada</div>
     <div class="cuerpo-texto">
       ${contenidoHTML}
     </div>
@@ -613,23 +645,32 @@ function abrirArticulo(id) {
 
   document.getElementById("vista-portada").classList.add("oculta");
   document.getElementById("vista-articulo").classList.add("activa");
+  document.getElementById("quienes-somos").classList.remove("activa");
+  document.getElementById("contacto").classList.remove("activa");
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+function mostrarEstatica(id) {
+  document.getElementById("vista-portada").classList.add("oculta");
+  document.getElementById("vista-articulo").classList.remove("activa");
+  document.getElementById("quienes-somos").classList.remove("activa");
+  document.getElementById("contacto").classList.remove("activa");
+
+  document.getElementById(id).classList.add("activa");
   window.scrollTo({top:0, behavior:"smooth"});
 }
 
 function mostrarPortada() {
   document.getElementById("vista-articulo").classList.remove("activa");
+  document.getElementById("quienes-somos").classList.remove("activa");
+  document.getElementById("contacto").classList.remove("activa");
   document.getElementById("vista-portada").classList.remove("oculta");
   window.scrollTo({top:0, behavior:"smooth"});
 }
 
-// Primera carga
 renderizarPortada(null);
 </script>
 
 </body>
 </html>
-
-   
-
-
-   
+  
