@@ -430,18 +430,18 @@
   </div>
 
   <div class="vista-articulo" id="vista-articulo">
-    <span class="volver" onclick="mostrarPortada()">&larr; Volver a portada</span>
+    <span class="volver" onclick="mostrarPortada()">← Volver a portada</span>
     <article class="articulo-full" id="articulo-contenido"></article>
   </div>
 
   <div class="vista-estatica" id="quienes-somos">
-    <span class="volver" onclick="mostrarPortada()">&larr; Volver a portada</span>
+    <span class="volver" onclick="mostrarPortada()">← Volver a portada</span>
     <h2>Quiénes somos</h2>
     <p><strong>Vetta</strong> es un medio de comunicación dedicado a ofrecer una cobertura completa y dinámica de todos los deportes, este espacio nace con el propósito de conectar a los fanáticos con la actualidad de cada deporte, abarcando desde el fútbol hasta el automovilismo, aquí cada noticia, análisis e historia se investiga y redacta con un firme compromiso, con el objetivo de brindar un periodismo cercano y enfocado en la verdadera pasión por el deporte.</p>
   </div>
 
   <div class="vista-estatica" id="contacto">
-    <span class="volver" onclick="mostrarPortada()">&larr; Volver a portada</span>
+    <span class="volver" onclick="mostrarPortada()">← Volver a portada</span>
     <h2>Contacto</h2>
     <p>La opinión y participación de quienes nos leen son fundamentales para el desarrollo de nuestro trabajo diario si tienes alguna sugerencia, deseas enviarnos un comentario sobre nuestras publicaciones, aportar un dato deportivo o simplemente comunicarte, puedes hacerlo a través de nuestro correo electrónico <strong>contactovetta8@gmail.com</strong></p>
   </div>
@@ -450,7 +450,7 @@
 
 <footer>
   <div class="contenido">
-    <span>&copy; <span id="anio"></span> Vetta — Todos los derechos reservados</span>
+    <span>© <span id="anio"></span> Vetta — Todos los derechos reservados</span>
     <span>Medio de Comunicación Deportivo</span>
   </div>
 </footer>
@@ -458,52 +458,52 @@
 <script>
 const NOTICIAS = [
   {
-  id: "kimi-antonelli-campeon-f1",
-  categoria: "Automovilismo",
-  titulo: "Kimi Antonelli se corona Campeón del Mundo de la Fórmula 1",
-  bajada: "El piloto de Mercedes aseguró el título de forma matemática tras subir al podio en una carrera muy disputada en el Gran Premio de México, dejando la tabla de posiciones fuera del alcance de sus rivales.",
-  autor: "Catalina Paredes",
-  fecha: "1 de noviembre de 2026",
-  imagen: "https://pbs.twimg.com/media/HWEw_CoW0AA3yic?format=jpg&name=4096x4096",
-  imagenes: [
-    "https://pbs.twimg.com/media/HWEw_CoW0AA3yic?format=jpg&name=4096x4096",
-    "https://pbs.twimg.com/media/HWFMps7WwAAArY_?format=jpg&name=medium"
-  ],
-  destacada: true,
-  elementos: [
-    { 
-      tipo: "texto", 
-      contenido: "El Mundial de la Fórmula 1 ya tiene a su nuevo dueño. En una jornada cargada de tensión, cálculo y una enorme expectación en el paddock, Andrea Kimi Antonelli se proclamó Campeón del Mundo este domingo tras cruzar la meta en la tercera posición de la carrera en el Autódromo Hermanos Rodríguez. El joven piloto de Mercedes completó un fin de semana impecable, manejando con la cabeza fría y sumando los puntos justos y necesarios para asegurar la corona de la máxima categoría del automovilismo." 
-    },
-    { 
-      tipo: "texto", 
-      contenido: "Desde el mismo momento en que se apagaron los semáforos, la competencia estuvo al rojo vivo en los puestos de arriba. Antonelli, consciente de que tenía la gran oportunidad de su vida en las manos, optó por una estrategia inteligente: evitar los roces innecesarios en la largada y mantener un ritmo constante a lo largo de las vueltas. El italiano supo cuidar muy bien el desgaste de sus neumáticos en un circuito que exigía al máximo a los monoplazas, y defendió su posición con categoría cada vez que los autos de atrás intentaron presionarlo." 
-    },
-    { 
-      tipo: "imagen", 
-      index: 1, 
-      pie: "El piloto de Mercedes festejando tras asegurar el campeonato mundial en suelo mexicano.", 
-      proporcion: "natural" 
-    },
-    { 
-      tipo: "texto", 
-      contenido: "Aunque el triunfo de la jornada quedó en manos de un sólido Max Verstappen y el segundo lugar se lo llevó un experimentado Lewis Hamilton, el tercer peldaño del podio fue más que suficiente para que Antonelli liquidara la pelea por el campeonato de pilotos. Con los puntos obtenidos en esta fecha, la ventaja en la tabla general se volvió totalmente inalcanzable para sus perseguidores, sellando una diferencia que ya nadie podrá remontar en lo que queda del año." 
-    },
-    { 
-      tipo: "texto", 
-      contenido: "La emoción se desató apenas ondeó la bandera a cuadros. En el garaje de Mercedes estalló la locura y los abrazos entre mecánicos e ingenieros, mientras el auto del nuevo campeón ingresaba al sector de premiación. Tras bajarse del monoplaza, Antonelli se fundió en un abrazo con su equipo y recibió las felicitaciones de los demás pilotos de la parrilla que se acercaron a reconocer su gran temporada." 
-    },
-    { 
-      tipo: "embed_x", 
-      codigo: "<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">This trio ❤️\n\nThe perfect podium lift on the day Kimi Antonelli is crowned Drivers' Champion! 🙌 \n\n#F1 #MexicoGP https://t.co/NBs6WYdbYH</p>— Formula 1 (@F1) <a href=\"https://x.com/F1/status/2117030253369454731?ref_src=twsrc%5Etfw\">November 1, 2026</a></blockquote>\n<script async src=\"https://platform.x.com/widgets.js\" charset=\"utf-8\"></script>", 
-      pie: "El momento en que Hamilton y Verstappen levantan a Antonelli en el podio." 
-    },
-    { 
-      tipo: "texto", 
-      contenido: "Con el título de pilotos ya definido a favor de la nueva gran estrella de Italia, el campeonato no se detiene. Las últimas fechas del calendario servirán para que el resto de la parrilla resuelva sus propias batallas, con la atención puesta en la lucha por el codiciado subcampeonato y en la recta final del campeonato de constructores." 
-    }
-  ]
-},
+    id: "kimi-antonelli-campeon-f1",
+    categoria: "Automovilismo",
+    titulo: "Kimi Antonelli se corona Campeón del Mundo de la Fórmula 1",
+    bajada: "El piloto de Mercedes aseguró el título de forma matemática tras subir al podio en una carrera muy disputada en el Gran Premio de México, dejando la tabla de posiciones fuera del alcance de sus rivales.",
+    autor: "Catalina Paredes",
+    fecha: "1 de noviembre de 2026",
+    imagen: "https://pbs.twimg.com/media/HWEw_CoW0AA3yic?format=jpg&name=4096x4096",
+    imagenes: [
+      "https://pbs.twimg.com/media/HWEw_CoW0AA3yic?format=jpg&name=4096x4096",
+      "https://pbs.twimg.com/media/HWFMps7WwAAArY_?format=jpg&name=medium"
+    ],
+    destacada: true,
+    elementos: [
+      { 
+        tipo: "texto", 
+        contenido: "El Mundial de la Fórmula 1 ya tiene a su nuevo dueño. En una jornada cargada de tensión, cálculo y una enorme expectación en el paddock, Andrea Kimi Antonelli se proclamó Campeón del Mundo este domingo tras cruzar la meta en la tercera posición de la carrera en el Autódromo Hermanos Rodríguez. El joven piloto de Mercedes completó un fin de semana impecable, manejando con la cabeza fría y sumando los puntos justos y necesarios para asegurar la corona de la máxima categoría del automovilismo." 
+      },
+      { 
+        tipo: "texto", 
+        contenido: "Desde el mismo momento en que se apagaron los semáforos, la competencia estuvo al rojo vivo en los puestos de arriba. Antonelli, consciente de que tenía la gran oportunidad de su vida en las manos, optó por una estrategia inteligente: evitar los roces innecesarios en la largada y mantener un ritmo constante a lo largo de las vueltas. El italiano supo cuidar muy bien el desgaste de sus neumáticos en un circuito que exigía al máximo a los monoplazas, y defendió su posición con categoría cada vez que los autos de atrás intentaron presionarlo." 
+      },
+      { 
+        tipo: "imagen", 
+        index: 1, 
+        pie: "El piloto de Mercedes festejando tras asegurar el campeonato mundial en suelo mexicano.", 
+        proporcion: "natural" 
+      },
+      { 
+        tipo: "texto", 
+        contenido: "Aunque el triunfo de la jornada quedó en manos de un sólido Max Verstappen y el segundo lugar se lo llevó un experimentado Lewis Hamilton, el tercer peldaño del podio fue más que suficiente para que Antonelli liquidara la pelea por el campeonato de pilotos. Con los puntos obtenidos en esta fecha, la ventaja en la tabla general se volvió totalmente inalcanzable para sus perseguidores, sellando una diferencia que ya nadie podrá remontar en lo que queda del año." 
+      },
+      { 
+        tipo: "texto", 
+        contenido: "La emoción se desató apenas ondeó la bandera a cuadros. En el garaje de Mercedes estalló la locura y los abrazos entre mecánicos e ingenieros, mientras el auto del nuevo campeón ingresaba al sector de premiación. Tras bajarse del monoplaza, Antonelli se fundió en un abrazo con su equipo y recibió las felicitaciones de los demás pilotos de la parrilla que se acercaron a reconocer su gran temporada." 
+      },
+      { 
+        tipo: "embed_x", 
+        codigo: "<blockquote class=\"twitter-tweet\"><p lang=\"en\" dir=\"ltr\">This trio ❤️\n\nThe perfect podium lift on the day Kimi Antonelli is crowned Drivers' Champion! 🙌 \n\n#F1 #MexicoGP https://t.co/NBs6WYdbYH</p>— Formula 1 (@F1) <a href=\"https://x.com/F1/status/2117030253369454731?ref_src=twsrc%5Etfw\">November 1, 2026</a></blockquote>\n<script async src=\"https://platform.x.com/widgets.js\" charset=\"utf-8\"></script>", 
+        pie: "El momento en que Hamilton y Verstappen levantan a Antonelli en el podio." 
+      },
+      { 
+        tipo: "texto", 
+        contenido: "Con el título de pilotos ya definido a favor de la nueva gran estrella de Italia, el campeonato no se detiene. Las últimas fechas del calendario servirán para que el resto de la parrilla resuelva sus propias batallas, con la atención puesta en la lucha por el codiciado subcampeonato y en la recta final del campeonato de constructores." 
+      }
+    ]
+  },
   {
     id: "pau-cubarsi-asalta-cima-golden-boy",
     categoria: "Fútbol Internacional",
@@ -760,7 +760,7 @@ const NOTICIAS = [
       },
       { 
         tipo: "texto", 
-        contenido: "La historia de Andrea Kimi Antonelli comenzó en la ciudad de Bolonia donde creció en una familia con mucha pasión por el automovilismo gracias a su padre Marco Antonelli, un entorno que despertó en él un interés muy temprano por las carreras y lo llevó a competir en las categorías infantiles de karting local donde destacó rápidamente por su buena técnica, su velocidad y su gran facilidad para aprender a manejar en cualquier pista" 
+        contenido: "La historia de Andrea Kimi Antonelli comenzó en la ciudad de Bolonia donde creció en una familia con mucha pasión por el automovilismo gracias a seu padre Marco Antonelli, un entorno que despertó en él un interés muy temprano por las carreras y lo llevó a competir en las categorías infantiles de karting local donde destacó rápidamente por su buena técnica, su velocidad y su gran facilidad para aprender a manejar en cualquier pista" 
       },
       { 
         tipo: "imagen", 
@@ -904,6 +904,13 @@ function abrirArticulo(id) {
             <div class="pie-img" style="margin-top: 6px;">${el.pie || "Imagen referencial"}</div>
           </div>
         `;
+      } else if (el.tipo === "embed_x") {
+        return `
+          <div style="margin: 28px 0; display: flex; flex-direction: column; align-items: center;">
+            ${el.codigo}
+            <div class="pie-img" style="margin-top: 6px; text-align: center;">${el.pie || ""}</div>
+          </div>
+        `;
       }
       return "";
     }).join("");
@@ -924,6 +931,16 @@ function abrirArticulo(id) {
       ${contenidoHTML}
     </div>
   `;
+
+  if (window.twttr && window.twttr.widgets) {
+    window.twttr.widgets.load(document.getElementById("articulo-contenido"));
+  } else {
+    const scriptX = document.createElement("script");
+    scriptX.src = "https://platform.x.com/widgets.js";
+    scriptX.charset = "utf-8";
+    scriptX.async = true;
+    document.head.appendChild(scriptX);
+  }
 
   document.getElementById("vista-portada").classList.add("oculta");
   document.getElementById("vista-articulo").classList.add("activa");
@@ -955,3 +972,4 @@ renderizarPortada(null);
 
 </body>
 </html>
+
