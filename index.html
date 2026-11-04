@@ -879,7 +879,7 @@ function abrirArticulo(id) {
     scriptX.src = "https://platform.x.com/widgets.js";
     scriptX.charset = "utf-8";
     scriptX.async = true;
-    document.head.push(scriptX);
+    document.head.appendChild(scriptX);
   }
  
   document.getElementById("vista-portada").classList.add("oculta");
