@@ -879,7 +879,7 @@ function abrirArticulo(id) {
     scriptX.src = "https://platform.x.com/widgets.js";
     scriptX.charset = "utf-8";
     scriptX.async = true;
-    document.head.appendChild(scriptX);
+    document.head.push(scriptX);
   }
  
   document.getElementById("vista-portada").classList.add("oculta");
@@ -902,7 +902,6 @@ function mostrarPortada() {
   document.getElementById("vista-articulo").classList.remove("activa");
   document.getElementById("quienes-somos").classList.remove("activa");
   document.getElementById("contacto").classList.remove("activa");
-  document.getElementById("vista-portada").classList.add("oculta");
   document.getElementById("vista-portada").classList.remove("oculta");
   window.scrollTo({top:0, behavior:"smooth"});
 }
@@ -912,5 +911,6 @@ renderizarPortada(null);
  
 </body>
 </html>
+ 
 
  
